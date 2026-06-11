@@ -15,10 +15,10 @@ export default function TravelFooter() {
         <nav aria-label="Travel footer links" className="flex items-center gap-5 text-sm">
           <Link to="/" className="text-ash hover:text-ember transition-colors">Gateway</Link>
           <Link to="/work" className="text-ash hover:text-voltage transition-colors">Work Universe</Link>
-          <a href="https://linkedin.com/in/my-profile" target="_blank" rel="noopener noreferrer" className="text-ash hover:text-ember transition-colors">
+          <a href="https://linkedin.com/in/ranjanvivek19" target="_blank" rel="noopener noreferrer" className="text-ash hover:text-ember transition-colors">
             LinkedIn
           </a>
-          <a href="mailto:hello@mydomain.com" className="text-ash hover:text-ember transition-colors">Email</a>
+          <a href="mailto:info@atlasdrifter.com" className="text-ash hover:text-ember transition-colors">Email</a>
         </nav>
 
         <button
