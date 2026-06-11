@@ -28,14 +28,19 @@ export default function TravelMediaCard({
       className="relative w-full mb-3 break-inside-avoid img-zoom rounded-xl overflow-hidden group focus-visible:ring-2 focus-visible:ring-ember"
       aria-label={`Open ${media.title || media.alt_text || 'travel media'}`}
     >
-      <CoverImage
-        src={preview || null}
-        alt={media.alt_text || media.title}
-        fallbackGlyph={media.media_type === 'video' ? '🎬' : '📷'}
-        className="w-full"
-      />
-      {/* Aspect filler for placeholder tiles so masonry stays varied */}
-      {!preview && <span aria-hidden="true" className="block" style={{ height: 150 + ((index * 53) % 110) }} />}
+      {preview ? (
+        <CoverImage src={preview} alt={media.alt_text || media.title} className="w-full" />
+      ) : (
+        // Placeholder tile with a varied fixed height so masonry stays organic
+        <div style={{ height: 150 + ((index * 53) % 110) }}>
+          <CoverImage
+            src={null}
+            alt={media.alt_text || media.title}
+            fallbackGlyph={media.media_type === 'video' ? '🎬' : '📷'}
+            className="w-full h-full"
+          />
+        </div>
+      )}
 
       {media.media_type === 'video' && (
         <span

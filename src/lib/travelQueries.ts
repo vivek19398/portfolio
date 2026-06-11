@@ -37,12 +37,30 @@ export function getTravelDestinations(): Promise<TravelDestination[]> {
   return fromTable('travel_destinations', (q) => q.order('display_order'), fallbackDestinations)
 }
 
-export function getFeaturedTravelMedia(): Promise<TravelMedia[]> {
-  return fromTable(
-    'travel_media',
-    (q) => q.eq('is_featured', true).order('display_order').limit(12),
-    fallbackMedia.filter((m) => m.is_featured),
-  )
+export async function getFeaturedTravelMedia(): Promise<TravelMedia[]> {
+  // Prefer featured rows; if none are marked featured yet, surface the
+  // latest real media. Samples only appear while the table is empty.
+  if (supabase) {
+    try {
+      const featured = await supabase
+        .from('travel_media')
+        .select('*')
+        .eq('is_featured', true)
+        .order('display_order')
+        .limit(12)
+      if (!featured.error && featured.data && featured.data.length > 0) return featured.data as TravelMedia[]
+
+      const latest = await supabase
+        .from('travel_media')
+        .select('*')
+        .order('created_at', { ascending: false })
+        .limit(12)
+      if (!latest.error && latest.data && latest.data.length > 0) return latest.data as TravelMedia[]
+    } catch {
+      /* fall through to local fallback */
+    }
+  }
+  return fallbackMedia.filter((m) => m.is_featured)
 }
 
 export interface MediaPage {
