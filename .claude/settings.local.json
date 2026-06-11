@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//private/tmp/**)",
+      "Bash(python3 -c ' *)",
+      "Bash(pdftotext -layout \"/Users/atlasdrifter/Library/Mobile Documents/com~apple~CloudDocs/Aaaaaaaa/Apppllee/VivekRanjan.pdf\" -)",
+      "Bash(which python3 *)",
+      "Bash(python3 -c \"import pypdf\")",
+      "Bash(python3 -c \"import PyPDF2\")",
+      "Bash(python3 -c \"import fitz\")"
+    ]
+  }
+}
