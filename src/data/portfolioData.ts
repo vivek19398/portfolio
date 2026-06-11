@@ -14,9 +14,9 @@ export const fallbackData: PortfolioData = {
     short_tagline:
       'Engineering scalable data platforms and production-grade GenAI systems — 4+ years across healthcare, pharma, and supply chain.',
     location: 'Cork, Ireland',
-    email: 'hello@mydomain.com',
-    linkedin_url: 'https://linkedin.com/in/my-profile',
-    github_url: 'https://github.com/my-profile',
+    email: 'info@atlasdrifter.com',
+    linkedin_url: 'https://linkedin.com/in/ranjanvivek19',
+    github_url: 'https://github.com/vivek19398',
     resume_url: '/Vivek_Ranjan_Resume.pdf',
     about_text:
       'I am a software developer with 4+ years of experience in Python, Generative AI, and Data Engineering, with deep domain expertise in pharmaceuticals and supply chain. At Eli Lilly, I built and scaled healthcare reporting pipelines processing 10M+ patient records across 150+ tables on AWS (S3, Glue, Redshift), cutting manual operations by 40%, and engineered a production RAG pipeline with LangChain and Pinecone that improved retrieval accuracy by 25%. I work across the full data and AI stack — Python, SQL, PySpark, Airflow, Snowflake, Redshift — and bring insights to life with Tableau and Power BI. Currently pursuing a Master of Engineering in Artificial Intelligence and Computer Vision at the University of Limerick, I am authorized to work in Ireland and open to AI Engineer and Data Engineer opportunities.',
