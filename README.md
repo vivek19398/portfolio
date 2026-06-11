@@ -56,13 +56,18 @@ npm run preview             # serve the production build locally
 
    ⚠️ Never use the `service_role` key anywhere in this project — it bypasses RLS.
 
-### Travel media workflow
+### Travel media workflow — direct upload from /admin
 
-1. **Compress first** (free-tier friendly): images ≤ ~300 KB (e.g. squoosh.app, WebP/AVIF ~1600px wide), thumbnails ≤ ~40 KB (~400px), videos short + H.264 ≤ ~5 MB.
-2. Upload via Supabase dashboard → **Storage**: full media to `travel-media`, small previews to `travel-thumbnails`, story/blog covers to `blog-covers`. (Admin uploads via the dashboard are fine; the site never uploads.)
-3. Copy each file's **public URL** (file → Get URL).
-4. In `/admin` → **Travel Media**, add a row: media type, public URL, thumbnail URL, caption, location, tags, destination ID (copy the uuid from the Destinations list), and mark featured if it should appear on the travel home.
-5. Add **Destinations** first, then **Highlights** (story circles), **Stories**, **Hacks**, and **Blog Posts** the same way. Sample placeholder content disappears automatically once real rows exist.
+Photos and covers upload **directly from the admin dashboard** — no Supabase dashboard needed, no manual compression:
+
+1. `/admin` → **Travel Media** → **+ Add** → click (or drag a file onto) **"Upload photo or video"**.
+   - **Images** are compressed in your browser to WebP (~1600px full size → `travel-media`, ~420px thumbnail → `travel-thumbnails`) and `media_type`, `public_url`, `thumbnail_url`, `storage_path` are filled automatically. Typical result: ~100–300 KB full + ~20–40 KB thumb.
+   - **Videos** upload as-is to `travel-media` (50 MB hard cap; aim for under ~8 MB — e.g. HandBrake, H.264 720p). Add a thumbnail image with the field's own Upload button.
+2. Fill in caption, location, country/city, tags, destination ID (copy the uuid from the Destinations list), mark Featured if it should appear on the travel home → **Save**.
+3. Every **cover image** field (Destinations, Stories, Hacks, Blog Posts, Highlights) has the same **⤒ Upload image** button with a live preview — it compresses and uploads to the right bucket and fills the URL for you.
+4. Add **Destinations** first (their uuids link media/highlights), then everything else. Sample placeholder content disappears automatically once real rows exist.
+
+Uploads use your authenticated admin session — the storage RLS policies reject anonymous uploads, so this only works while logged into `/admin`. The public site only ever *reads* storage.
 
 The grid always renders thumbnails; full-size media loads only inside the lightbox, gallery pages load 12 items at a time with infinite scroll, and videos never autoplay.
 

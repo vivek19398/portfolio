@@ -1,14 +1,17 @@
 import { useCallback, useEffect, useState } from 'react'
 import { supabase } from '../lib/supabase'
+import { CoverUploadButton, MediaUploader } from './admin/uploaders'
 import type { ContactMessage } from '../types/database'
 
-type FieldType = 'text' | 'textarea' | 'number' | 'boolean' | 'lines' | 'date'
+type FieldType = 'text' | 'textarea' | 'number' | 'boolean' | 'lines' | 'date' | 'upload'
 
 interface FieldDef {
   key: string
   label: string
   type: FieldType
   required?: boolean
+  /** Storage bucket for 'upload' fields. */
+  bucket?: string
 }
 
 interface EntityDef {
@@ -122,7 +125,7 @@ const ENTITIES: EntityDef[] = [
       { key: 'city', label: 'City', type: 'text' },
       { key: 'region', label: 'Region', type: 'text' },
       { key: 'description', label: 'Description', type: 'textarea' },
-      { key: 'cover_image_url', label: 'Cover image URL (Supabase Storage)', type: 'text' },
+      { key: 'cover_image_url', label: 'Cover image', type: 'upload', bucket: 'blog-covers' },
       { key: 'travel_date', label: 'Travel date', type: 'date' },
       { key: 'display_order', label: 'Display order', type: 'number' },
       { key: 'is_featured', label: 'Featured', type: 'boolean' },
@@ -134,9 +137,9 @@ const ENTITIES: EntityDef[] = [
     titleKey: 'title',
     fields: [
       { key: 'title', label: 'Title', type: 'text' },
-      { key: 'media_type', label: 'Media type (image | video)', type: 'text', required: true },
-      { key: 'public_url', label: 'Public URL (travel-media bucket)', type: 'text', required: true },
-      { key: 'thumbnail_url', label: 'Thumbnail URL (travel-thumbnails bucket)', type: 'text' },
+      { key: 'media_type', label: 'Media type (image | video) — auto-filled by upload', type: 'text', required: true },
+      { key: 'public_url', label: 'Public URL — auto-filled by upload', type: 'text', required: true },
+      { key: 'thumbnail_url', label: 'Thumbnail (auto for images; upload one for videos)', type: 'upload', bucket: 'travel-thumbnails' },
       { key: 'storage_path', label: 'Storage path', type: 'text' },
       { key: 'caption', label: 'Caption', type: 'textarea' },
       { key: 'alt_text', label: 'Alt text', type: 'text' },
@@ -159,7 +162,7 @@ const ENTITIES: EntityDef[] = [
       { key: 'slug', label: 'Slug', type: 'text', required: true },
       { key: 'excerpt', label: 'Excerpt', type: 'textarea' },
       { key: 'content', label: 'Content (blank line = new paragraph)', type: 'textarea' },
-      { key: 'cover_image_url', label: 'Cover image URL (blog-covers bucket)', type: 'text' },
+      { key: 'cover_image_url', label: 'Cover image', type: 'upload', bucket: 'blog-covers' },
       { key: 'destination_id', label: 'Destination ID (uuid, optional)', type: 'text' },
       { key: 'tags', label: 'Tags (one per line)', type: 'lines' },
       { key: 'travel_date', label: 'Travel date', type: 'date' },
@@ -183,7 +186,7 @@ const ENTITIES: EntityDef[] = [
       { key: 'difficulty_level', label: 'Difficulty (Easy | Medium | Advanced)', type: 'text' },
       { key: 'estimated_savings', label: 'Estimated savings (e.g. €50)', type: 'text' },
       { key: 'tags', label: 'Tags (one per line)', type: 'lines' },
-      { key: 'cover_image_url', label: 'Cover image URL', type: 'text' },
+      { key: 'cover_image_url', label: 'Cover image', type: 'upload', bucket: 'blog-covers' },
       { key: 'is_featured', label: 'Featured', type: 'boolean' },
     ],
   },
@@ -198,7 +201,7 @@ const ENTITIES: EntityDef[] = [
       { key: 'category', label: 'Category (e.g. Life Abroad, Career)', type: 'text', required: true },
       { key: 'excerpt', label: 'Excerpt', type: 'textarea' },
       { key: 'content', label: 'Content (blank line = new paragraph)', type: 'textarea' },
-      { key: 'cover_image_url', label: 'Cover image URL (blog-covers bucket)', type: 'text' },
+      { key: 'cover_image_url', label: 'Cover image', type: 'upload', bucket: 'blog-covers' },
       { key: 'tags', label: 'Tags (one per line)', type: 'lines' },
       { key: 'reading_time', label: 'Reading time (min)', type: 'number' },
       { key: 'published_at', label: 'Published date', type: 'date' },
@@ -211,7 +214,7 @@ const ENTITIES: EntityDef[] = [
     titleKey: 'title',
     fields: [
       { key: 'title', label: 'Title (short, e.g. city name)', type: 'text', required: true },
-      { key: 'cover_image_url', label: 'Cover image URL (travel-thumbnails bucket)', type: 'text' },
+      { key: 'cover_image_url', label: 'Cover image', type: 'upload', bucket: 'travel-thumbnails' },
       { key: 'destination_id', label: 'Destination ID (uuid, optional)', type: 'text' },
       { key: 'display_order', label: 'Display order', type: 'number' },
     ],
@@ -255,7 +258,7 @@ function EntityEditor({ def }: { def: EntityDef }) {
     const payload: Row = { ...editing }
     // Normalize empty strings to null for optional date/url columns
     for (const f of def.fields) {
-      if ((f.type === 'date' || f.type === 'text') && payload[f.key] === '') payload[f.key] = null
+      if ((f.type === 'date' || f.type === 'text' || f.type === 'upload') && payload[f.key] === '') payload[f.key] = null
     }
     const isNew = !payload.id
     if (isNew) delete payload.id
@@ -309,6 +312,9 @@ function EntityEditor({ def }: { def: EntityDef }) {
       {editing && (
         <div className="neon-border glass-panel p-5 space-y-4">
           <h3 className="text-mist font-semibold">{editing.id ? 'Edit' : 'New'} {def.label.replace(/s$/, '')}</h3>
+          {def.table === 'travel_media' && (
+            <MediaUploader onUploaded={(patch) => setEditing((r) => ({ ...r!, ...patch }))} />
+          )}
           {def.fields.map((f) => (
             <div key={f.key}>
               <label htmlFor={`f-${f.key}`} className="block text-xs text-ash mb-1">{f.label}</label>
@@ -336,6 +342,30 @@ function EntityEditor({ def }: { def: EntityDef }) {
                   checked={Boolean(editing[f.key])}
                   onChange={(e) => setEditing((r) => ({ ...r!, [f.key]: e.target.checked }))}
                 />
+              ) : f.type === 'upload' ? (
+                <div>
+                  <div className="flex gap-2 items-start">
+                    <input
+                      id={`f-${f.key}`}
+                      type="text"
+                      placeholder="https://… (or use Upload)"
+                      className="flex-1 rounded-lg bg-charcoal/80 border border-white/10 px-3 py-2 text-sm text-mist focus:border-voltage outline-none"
+                      value={String(editing[f.key] ?? '')}
+                      onChange={(e) => setEditing((r) => ({ ...r!, [f.key]: e.target.value }))}
+                    />
+                    <CoverUploadButton
+                      bucket={f.bucket ?? 'blog-covers'}
+                      onUploaded={(url) => setEditing((r) => ({ ...r!, [f.key]: url }))}
+                    />
+                  </div>
+                  {typeof editing[f.key] === 'string' && (editing[f.key] as string).startsWith('http') && (
+                    <img
+                      src={editing[f.key] as string}
+                      alt="Cover preview"
+                      className="mt-2 h-20 rounded-lg object-cover border border-white/10"
+                    />
+                  )}
+                </div>
               ) : (
                 <input
                   id={`f-${f.key}`}
