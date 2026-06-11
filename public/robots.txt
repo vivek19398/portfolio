@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin
 
-Sitemap: https://mydomain.com/sitemap.xml
+Sitemap: https://atlasdrifter.com/sitemap.xml
