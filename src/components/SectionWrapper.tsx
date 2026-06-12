@@ -31,13 +31,17 @@ export default function SectionWrapper({ id, title, kicker, children, className 
           >
             <EnergyBurst className="w-28 h-28 -left-8 -top-6" />
             {kicker && (
-              <p className="font-mono text-xs sm:text-sm tracking-[0.35em] uppercase text-voltage mb-3">
+              <p className="font-mono text-[11px] sm:text-xs tracking-[0.45em] uppercase text-gold mb-3 flex items-center gap-3">
+                <svg width="10" height="10" viewBox="0 0 14 14" fill="none" aria-hidden="true" className="shrink-0">
+                  <path d="M7 0L8.8 5.2L14 7L8.8 8.8L7 14L5.2 8.8L0 7L5.2 5.2L7 0Z" fill="#c9a84c" />
+                </svg>
                 {kicker}
               </p>
             )}
             <h2 className="section-heading">
-              <span className="gradient-text">{title}</span>
+              <span className="gold-text">{title}</span>
             </h2>
+            <span aria-hidden="true" className="block h-px w-24 mt-5 bg-gradient-to-r from-gold/70 to-transparent" />
           </motion.header>
         )}
         {children}

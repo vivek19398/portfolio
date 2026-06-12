@@ -58,12 +58,12 @@ export default function ContactForm({ profile }: { profile: Profile }) {
   }
 
   const inputClass = (field: keyof FieldErrors) =>
-    `w-full rounded-xl bg-charcoal/80 border px-4 py-3 text-mist placeholder:text-ash/50 transition-colors focus:border-voltage outline-none ${
+    `w-full rounded-xl bg-charcoal/80 border px-4 py-3 text-mist placeholder:text-ash/50 transition-colors focus:border-gold outline-none ${
       errors[field] ? 'border-crimson/70' : 'border-white/10'
     }`
 
   return (
-    <SectionWrapper id="contact" kicker="Final Chapter" title="Summon Me">
+    <SectionWrapper id="contact" kicker="Final Chapter" title="Dispatch a Message">
       <div className="grid md:grid-cols-5 gap-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -99,15 +99,15 @@ export default function ContactForm({ profile }: { profile: Profile }) {
           transition={{ duration: 0.7, delay: 0.15 }}
           className="md:col-span-3"
         >
-        <ScannerBorder scanning={status !== 'success'} className="h-full">
+        <ScannerBorder scanning={status !== 'success'} cornerClass="border-gold" className="h-full">
         <form
           onSubmit={handleSubmit}
           noValidate
-          className="neon-border glass-panel p-6 sm:p-8 space-y-5 h-full"
+          className="royal-border glass-panel p-6 sm:p-8 space-y-5 h-full"
         >
-          <p className="font-mono text-[10px] tracking-[0.35em] uppercase text-voltage flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-voltage animate-glow-pulse" aria-hidden="true" />
-            Transmission Channel · Secure
+          <p className="font-mono text-[10px] tracking-[0.35em] uppercase text-gold flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-gold animate-glow-pulse" aria-hidden="true" />
+            Royal Dispatch Channel · Secure
           </p>
           {/* Honeypot — hidden from humans, attractive to bots */}
           <div className="absolute opacity-0 -z-10 h-0 overflow-hidden" aria-hidden="true">
@@ -141,8 +141,8 @@ export default function ContactForm({ profile }: { profile: Profile }) {
           </div>
 
           <div className="flex items-center justify-between flex-wrap gap-4">
-            <button type="submit" disabled={status === 'sending'} className="btn-primary disabled:opacity-50 disabled:hover:scale-100">
-              {status === 'sending' ? 'Sending…' : 'Send Message ⚔'}
+            <button type="submit" disabled={status === 'sending'} className="btn-royal disabled:opacity-50 cursor-pointer">
+              {status === 'sending' ? 'Sending…' : 'Send Message'}
             </button>
 
             <AnimatePresence mode="wait">

@@ -21,7 +21,7 @@ function extractMetrics(exp: Experience): string[] {
 
 export default function ExperienceTimeline({ experience }: { experience: Experience[] }) {
   return (
-    <SectionWrapper id="experience" kicker="Chapter 03" title="The Journey So Far">
+    <SectionWrapper id="experience" kicker="Chapter III" title="Career Campaign">
       <ol className="relative ml-3 sm:ml-6">
         {/* Flowing energy beam replaces the static border */}
         <span aria-hidden="true" className="absolute left-0 top-0 bottom-0 w-[2px] energy-beam rounded-full" />
@@ -40,39 +40,39 @@ export default function ExperienceTimeline({ experience }: { experience: Experie
               {/* Glowing mission node with spark ring on reveal */}
               <span
                 aria-hidden="true"
-                className="absolute -left-[8px] top-1.5 w-[17px] h-[17px] rounded-full bg-void border-2 border-voltage shadow-[0_0_14px_rgba(56,189,248,0.8)] animate-glow-pulse"
+                className="absolute -left-[8px] top-1.5 w-[17px] h-[17px] rounded-full bg-void border-2 border-gold shadow-[0_0_14px_rgba(201,168,76,0.8)] animate-glow-pulse"
               />
               <motion.span
                 aria-hidden="true"
-                className="absolute -left-[16px] top-[-2px] w-[33px] h-[33px] rounded-full border border-ember/60"
+                className="absolute -left-[16px] top-[-2px] w-[33px] h-[33px] rounded-full border border-gold/60"
                 initial={{ scale: 0.4, opacity: 0 }}
                 whileInView={{ scale: [0.4, 1.8], opacity: [0, 1, 0] }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.9, delay: i * 0.12 + 0.2, ease: 'easeOut' }}
               />
 
-              <div className="glass-panel p-6 sm:p-7 hover:border-royal/30 transition-colors relative overflow-hidden">
+              <div className="glass-panel p-6 sm:p-7 hover:border-gold/30 transition-colors relative overflow-hidden">
                 {/* Light trail sweeping across on reveal */}
                 <motion.span
                   aria-hidden="true"
                   className="absolute inset-y-0 w-24 pointer-events-none"
-                  style={{ background: 'linear-gradient(100deg, transparent, rgba(56,189,248,0.10), transparent)' }}
+                  style={{ background: 'linear-gradient(100deg, transparent, rgba(201,168,76,0.10), transparent)' }}
                   initial={{ left: '-25%' }}
                   whileInView={{ left: '110%' }}
                   viewport={{ once: true, margin: '-60px' }}
                   transition={{ duration: 0.9, delay: i * 0.12 + 0.15, ease: 'easeOut' }}
                 />
 
-                <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-ash mb-2">
-                  Mission {String(experience.length - i).padStart(2, '0')}
+                <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-gold/70 mb-2">
+                  Campaign {String(experience.length - i).padStart(2, '0')}
                 </p>
                 <div className="flex flex-wrap items-baseline justify-between gap-2 mb-1">
                   <h3 className="font-display text-lg sm:text-xl text-mist">{exp.role_title}</h3>
-                  <span className="font-mono text-xs text-ember tracking-wider border border-ember/30 bg-ember/5 rounded-full px-3 py-1 shadow-[0_0_10px_rgba(245,158,11,0.15)]">
+                  <span className="font-mono text-xs text-gold-light tracking-wider border border-gold/40 bg-gold/5 rounded-full px-3 py-1 shadow-[0_0_10px_rgba(201,168,76,0.15)]">
                     {formatRange(exp)}
                   </span>
                 </div>
-                <p className="text-sm text-voltage mb-1">{exp.company_name}</p>
+                <p className="text-sm text-gold-light mb-1">{exp.company_name}</p>
                 <p className="text-xs text-ash mb-4">{exp.location}</p>
 
                 {metrics.length > 0 && (
@@ -105,7 +105,7 @@ export default function ExperienceTimeline({ experience }: { experience: Experie
 
                 <ul className="flex flex-wrap gap-2" aria-label="Technologies used">
                   {exp.tech_stack.map((t) => (
-                    <li key={t} className="text-[11px] font-mono text-royal bg-royal/10 border border-royal/25 rounded-md px-2 py-0.5">
+                    <li key={t} className="text-[11px] font-mono text-parchment/60 bg-white/5 border border-gold/20 rounded-md px-2 py-0.5">
                       {t}
                     </li>
                   ))}

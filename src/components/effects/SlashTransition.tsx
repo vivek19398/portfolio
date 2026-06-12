@@ -12,15 +12,15 @@ export default function SlashTransition() {
         <defs>
           <linearGradient id="slash-a" x1="0" y1="0" x2="1" y2="0">
             <stop offset="0" stopColor="transparent" />
-            <stop offset="0.35" stopColor="#e3344e" />
-            <stop offset="0.6" stopColor="#f59e0b" />
+            <stop offset="0.35" stopColor="#f59e0b" />
+            <stop offset="0.6" stopColor="#e8c97a" />
             <stop offset="0.85" stopColor="#38bdf8" />
             <stop offset="1" stopColor="transparent" />
           </linearGradient>
           <linearGradient id="slash-b" x1="1" y1="0" x2="0" y2="0">
             <stop offset="0" stopColor="transparent" />
             <stop offset="0.4" stopColor="#38bdf8" />
-            <stop offset="0.7" stopColor="#a855f7" />
+            <stop offset="0.7" stopColor="#c9a84c" />
             <stop offset="1" stopColor="transparent" />
           </linearGradient>
           <filter id="slash-glow" x="-20%" y="-300%" width="140%" height="700%">
@@ -63,7 +63,7 @@ export default function SlashTransition() {
           { cx: 380, cy: 37, c: '#f59e0b', d: 0.35, dx: -14, dy: -16 },
           { cx: 640, cy: 31, c: '#38bdf8', d: 0.42, dx: 10, dy: -20 },
           { cx: 870, cy: 26, c: '#e3344e', d: 0.5, dx: 16, dy: -12 },
-          { cx: 520, cy: 34, c: '#a855f7', d: 0.55, dx: -8, dy: -22 },
+          { cx: 520, cy: 34, c: '#c9a84c', d: 0.55, dx: -8, dy: -22 },
         ].map((s, i) => (
           <motion.circle
             key={i}

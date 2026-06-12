@@ -5,7 +5,7 @@ import type { Project } from '../types/database'
 
 export default function Projects({ projects }: { projects: Project[] }) {
   return (
-    <SectionWrapper id="projects" kicker="Chapter 04" title="Featured Work">
+    <SectionWrapper id="projects" kicker="Chapter IV" title="Featured Work">
       {/* Faint vortex energy field behind the grid */}
       <div aria-hidden="true" className="absolute inset-0 overflow-hidden pointer-events-none">
         <EnergyVortex size={900} intensity={0.35} />

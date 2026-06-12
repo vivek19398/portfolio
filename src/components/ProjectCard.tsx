@@ -25,12 +25,12 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
 
   return (
     <>
-      <TransformCard dataStream bootDelay={index * 0.1} className="neon-border glass-panel">
+      <TransformCard dataStream bootDelay={index * 0.1} className="royal-border glass-panel">
         <article className="p-6 flex flex-col gap-4 h-full">
           <header className="flex items-start justify-between gap-3">
             <h3 className="font-display text-lg sm:text-xl text-mist leading-snug">{project.title}</h3>
             {project.is_featured && (
-              <span className="shrink-0 text-[10px] font-mono uppercase tracking-widest text-ember border border-ember/40 rounded-full px-2.5 py-1 animate-glow-pulse">
+              <span className="shrink-0 text-[10px] font-mono uppercase tracking-widest text-gold-light border border-gold/50 rounded-full px-2.5 py-1 animate-glow-pulse">
                 Featured
               </span>
             )}
@@ -66,7 +66,7 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
           </ul>
 
           <footer className="flex flex-wrap gap-3 pt-1">
-            <button onClick={() => setOpen(true)} className="btn-ghost !px-4 !py-1.5 text-xs font-mono uppercase tracking-wider">
+            <button onClick={() => setOpen(true)} className="btn-frost !px-4 !py-1.5 text-xs font-mono uppercase tracking-wider cursor-pointer">
               ▶ View Details
             </button>
             {project.live_url && (
@@ -74,7 +74,7 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
                 href={project.live_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-xl px-4 py-1.5 text-xs font-mono uppercase tracking-wider text-ember border border-ember/40 bg-ember/5 hover:bg-ember/15 transition-colors"
+                className="inline-flex items-center gap-1.5 rounded-xl px-4 py-1.5 text-xs font-mono uppercase tracking-wider text-gold-light border border-gold/50 bg-ember/5 hover:bg-ember/15 transition-colors"
               >
                 ↗ Live
               </a>
@@ -101,11 +101,11 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
               exit={{ scale: 0.9, y: 20, opacity: 0 }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
               onClick={(e) => e.stopPropagation()}
-              className="neon-border glass-panel max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8"
+              className="royal-border glass-panel max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8"
             >
               <div className="flex items-start justify-between gap-4 mb-4">
                 <div>
-                  <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-voltage mb-2">Case Study</p>
+                  <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-gold mb-2">Case Study</p>
                   <h3 className="font-display text-2xl text-mist">{project.title}</h3>
                 </div>
                 <button
@@ -121,7 +121,7 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
 
               {project.impact_metrics.length > 0 && (
                 <>
-                  <h4 className="font-mono text-xs tracking-[0.25em] uppercase text-ember mb-3">Impact</h4>
+                  <h4 className="font-mono text-xs tracking-[0.25em] uppercase text-gold mb-3">Impact</h4>
                   <ul className="space-y-2 mb-6">
                     {project.impact_metrics.map((m) => (
                       <li key={m} className="text-sm text-mist flex gap-2.5">
@@ -133,7 +133,7 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
                 </>
               )}
 
-              <h4 className="font-mono text-xs tracking-[0.25em] uppercase text-ember mb-3">Tech Stack</h4>
+              <h4 className="font-mono text-xs tracking-[0.25em] uppercase text-gold mb-3">Tech Stack</h4>
               <ul className="flex flex-wrap gap-2 mb-6">
                 {project.tech_stack.map((t) => (
                   <li key={t} className="text-xs font-mono text-voltage bg-voltage/10 border border-voltage/20 rounded-md px-2.5 py-1">
@@ -144,7 +144,7 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
 
               <div className="flex flex-wrap gap-3">
                 {project.live_url && (
-                  <a href={project.live_url} target="_blank" rel="noopener noreferrer" className="btn-primary !px-5 !py-2 text-sm">
+                  <a href={project.live_url} target="_blank" rel="noopener noreferrer" className="btn-royal !px-5 !py-2 text-sm">
                     ↗ View Live
                   </a>
                 )}

@@ -29,13 +29,16 @@ export default function Navbar({ resumeUrl }: { resumeUrl: string }) {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-void/80 backdrop-blur-lg border-b border-white/5 shadow-lg shadow-black/40' : 'bg-transparent'
+        scrolled ? 'bg-void/85 backdrop-blur-lg border-b border-gold/15 shadow-lg shadow-black/40' : 'bg-transparent'
       }`}
       aria-label="Primary navigation"
     >
       <div className="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
-        <a href="#top" className="font-display text-xl tracking-widest text-mist hover:text-voltage transition-colors">
-          VR<span className="text-crimson">.</span>
+        <a
+          href="#top"
+          className="font-display text-base tracking-[0.3em] uppercase text-gold hover:text-gold-light transition-colors"
+        >
+          Vivek Ranjan
         </a>
 
         <ul className="hidden lg:flex items-center gap-6">
@@ -43,23 +46,23 @@ export default function Navbar({ resumeUrl }: { resumeUrl: string }) {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="text-sm text-ash hover:text-mist transition-colors relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-gradient-to-r after:from-voltage after:to-crimson hover:after:w-full after:transition-all after:duration-300"
+                className="text-[13px] tracking-[0.12em] uppercase text-parchment/60 hover:text-parchment transition-colors duration-200 relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-gradient-to-r after:from-gold after:to-gold-light hover:after:w-full after:transition-all after:duration-300"
               >
                 {l.label}
               </a>
             </li>
           ))}
           <li>
-            <a href={resumeUrl} download className="btn-ghost !px-4 !py-1.5 text-sm">
+            <a href={resumeUrl} download className="btn-royal !px-4 !py-1.5 text-sm">
               Resume
             </a>
           </li>
           <li>
             <Link
               to="/travel"
-              className="text-xs font-mono uppercase tracking-wider text-ember border border-ember/40 rounded-lg px-3 py-1.5 hover:bg-ember/10 transition-colors"
+              className="text-xs font-mono uppercase tracking-wider text-voltage border border-voltage/40 rounded-lg px-3 py-1.5 hover:bg-voltage/10 transition-colors"
             >
-              ✈ Travel Galaxy
+              Travel Galaxy
             </Link>
           </li>
         </ul>

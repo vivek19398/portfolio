@@ -62,7 +62,7 @@ export default function TransformCard({
         <motion.span
           aria-hidden="true"
           className="absolute inset-y-0 w-1 z-20 pointer-events-none"
-          style={{ background: 'linear-gradient(180deg, transparent, rgba(56,189,248,0.9), transparent)' }}
+          style={{ background: 'linear-gradient(180deg, transparent, rgba(232,201,122,0.9), transparent)' }}
           initial={{ left: '0%', opacity: 1 }}
           whileInView={{ left: '100%', opacity: [1, 1, 0] }}
           viewport={{ once: true, margin: '-50px' }}
@@ -79,7 +79,7 @@ export default function TransformCard({
           className="absolute inset-0 pointer-events-none transition-opacity duration-300 rounded-2xl"
           style={{
             opacity: hover ? 1 : 0,
-            background: `radial-gradient(420px circle at ${t.gx}% ${t.gy}%, rgba(56,189,248,0.10), transparent 45%)`,
+            background: `radial-gradient(420px circle at ${t.gx}% ${t.gy}%, rgba(201,168,76,0.10), transparent 45%)`,
           }}
         />
 
@@ -88,8 +88,8 @@ export default function TransformCard({
           aria-hidden="true"
           className={`absolute inset-x-2 h-px z-10 pointer-events-none ${hover ? 'animate-scan-y' : 'hidden'}`}
           style={{
-            background: 'linear-gradient(90deg, transparent, rgba(168,85,247,0.6), transparent)',
-            boxShadow: '0 0 10px rgba(168,85,247,0.5)',
+            background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.6), transparent)',
+            boxShadow: '0 0 10px rgba(201,168,76,0.5)',
           }}
         />
 
@@ -101,7 +101,7 @@ export default function TransformCard({
           <span
             key={pos}
             aria-hidden="true"
-            className={`absolute w-4 h-4 ${pos} border-voltage/40 group-hover/tc:border-voltage transition-colors duration-300 pointer-events-none z-10`}
+            className={`absolute w-4 h-4 ${pos} border-gold/40 group-hover/tc:border-gold transition-colors duration-300 pointer-events-none z-10`}
           />
         ))}
 

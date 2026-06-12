@@ -71,6 +71,99 @@
       transition-all duration-200 hover:bg-voltage/15 hover:scale-[1.04] active:scale-[0.98];
   }
 
+  /* ── Royal "AI Data Kingdom" theme (work universe) ─────────────────── */
+
+  /* Metallic gold text with a slow light sweep */
+  .gold-text {
+    background-image: linear-gradient(
+      105deg,
+      #7a6130 0%,
+      #c9a84c 22%,
+      #f4e3b2 38%,
+      #e8c97a 50%,
+      #f4e3b2 62%,
+      #c9a84c 78%,
+      #7a6130 100%
+    );
+    background-size: 220% 100%;
+    @apply bg-clip-text text-transparent animate-gold-sheen;
+  }
+
+  /* Film grain — cinematic texture at near-zero cost */
+  .grain-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px;
+  }
+
+  /* Cinematic vignette */
+  .vignette-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 35%, rgba(0, 0, 0, 0.7) 100%);
+  }
+
+  /* Gold metallic frame — the royal sibling of .neon-border */
+  .royal-border {
+    position: relative;
+    border-radius: 1rem;
+  }
+  .royal-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(232, 201, 122, 0.75), rgba(122, 97, 48, 0.35) 40%, rgba(201, 168, 76, 0.65) 60%, rgba(122, 97, 48, 0.4));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* Ornamental rule under royal headings */
+  .ornament-rule {
+    @apply flex items-center gap-3 text-gold;
+  }
+  .ornament-rule::before,
+  .ornament-rule::after {
+    content: '';
+    height: 1px;
+    flex: 1;
+    background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.6));
+  }
+  .ornament-rule::after {
+    background: linear-gradient(90deg, rgba(201, 168, 76, 0.6), transparent);
+  }
+
+  /* Manuscript drop cap for the About story panel */
+  .drop-cap::first-letter {
+    @apply font-display text-gold float-left;
+    font-size: 3.2em;
+    line-height: 0.85;
+    padding-right: 0.12em;
+    padding-top: 0.04em;
+  }
+
+  /* Royal CTA — molten gold */
+  .btn-royal {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold text-void
+      bg-gradient-to-r from-gold-light via-gold to-gold-dim shadow-lg shadow-gold/20
+      transition-all duration-200 hover:shadow-gold/40 hover:brightness-110 active:scale-[0.98];
+  }
+
+  /* Frost CTA — icy counterpart */
+  .btn-frost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold
+      border border-voltage/40 text-voltage bg-voltage/5
+      transition-all duration-200 hover:bg-voltage/15 hover:border-voltage/70 hover:shadow-[0_0_24px_rgba(56,189,248,0.2)] active:scale-[0.98];
+  }
+
   /* Animated gradient light sweeping across hero name */
   .hero-name-sheen {
     background-image: linear-gradient(
@@ -165,14 +258,14 @@
     background: linear-gradient(
       180deg,
       rgba(56, 189, 248, 0) 0%,
-      rgba(56, 189, 248, 0.9) 18%,
-      rgba(168, 85, 247, 0.9) 50%,
-      rgba(227, 52, 78, 0.9) 82%,
-      rgba(227, 52, 78, 0) 100%
+      rgba(56, 189, 248, 0.85) 18%,
+      rgba(201, 168, 76, 0.95) 50%,
+      rgba(245, 158, 11, 0.85) 82%,
+      rgba(245, 158, 11, 0) 100%
     );
     background-size: 100% 200%;
     @apply animate-beam-flow;
-    box-shadow: 0 0 12px rgba(168, 85, 247, 0.55);
+    box-shadow: 0 0 12px rgba(201, 168, 76, 0.5);
   }
 }
 
