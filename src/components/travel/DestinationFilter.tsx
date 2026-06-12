@@ -16,8 +16,8 @@ export default function DestinationFilter({ destinations, selected, onSelect }: 
         onClick={() => onSelect(null)}
         className={`px-4 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider border transition-all ${
           selected === null
-            ? 'border-ember/60 bg-ember/15 text-ember shadow-[0_0_14px_rgba(245,158,11,0.25)]'
-            : 'border-white/10 text-ash hover:text-mist hover:border-white/25'
+            ? 'border-gold/60 bg-gold/10 text-gold-light shadow-[0_0_14px_rgba(201,168,76,0.2)]'
+            : 'border-white/10 text-ash hover:text-parchment hover:border-gold/30'
         }`}
       >
         All
@@ -30,8 +30,8 @@ export default function DestinationFilter({ destinations, selected, onSelect }: 
           onClick={() => onSelect(d.id)}
           className={`px-4 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider border transition-all ${
             selected === d.id
-              ? 'border-ember/60 bg-ember/15 text-ember shadow-[0_0_14px_rgba(245,158,11,0.25)]'
-              : 'border-white/10 text-ash hover:text-mist hover:border-white/25'
+              ? 'border-gold/60 bg-gold/10 text-gold-light shadow-[0_0_14px_rgba(201,168,76,0.2)]'
+              : 'border-white/10 text-ash hover:text-parchment hover:border-gold/30'
           }`}
         >
           {d.city || d.country}

@@ -232,7 +232,7 @@
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: conic-gradient(from 0deg, #f59e0b, #e3344e, #a855f7, #38bdf8, #f59e0b);
+    background: conic-gradient(from 0deg, #e8c97a, #f59e0b, #c9a84c, #38bdf8, #e8c97a);
     animation: vortexSpin 6s linear infinite;
   }
   .story-ring > * {

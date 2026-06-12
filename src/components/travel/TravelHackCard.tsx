@@ -15,11 +15,11 @@ export default function TravelHackCard({ hack, index = 0 }: { hack: TravelHack; 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.5, delay: (index % 3) * 0.08 }}
-      whileHover={{ y: -5, boxShadow: '0 12px 40px rgba(245,158,11,0.14)' }}
-      className="glass-panel p-6 flex flex-col gap-3"
+      whileHover={{ y: -5, boxShadow: '0 12px 40px rgba(201,168,76,0.14)' }}
+      className="royal-border glass-panel p-6 flex flex-col gap-3"
     >
       <div className="flex items-center justify-between gap-3 flex-wrap">
-        <span className="text-[10px] font-mono uppercase tracking-widest text-ember border border-ember/30 bg-ember/5 rounded-full px-2.5 py-1">
+        <span className="text-[10px] font-mono uppercase tracking-widest text-gold-light border border-gold/40 bg-gold/5 rounded-full px-2.5 py-1">
           {hack.category}
         </span>
         <span className={`text-[10px] font-mono uppercase tracking-widest border rounded-full px-2.5 py-1 ${DIFFICULTY_COLOR[hack.difficulty_level]}`}>
@@ -48,7 +48,7 @@ export default function TravelHackCard({ hack, index = 0 }: { hack: TravelHack; 
 
       <Link
         to={`/travel/hacks/${hack.slug}`}
-        className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-ember hover:text-mist transition-colors"
+        className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-gold-light hover:text-parchment transition-colors"
       >
         Read more →
       </Link>

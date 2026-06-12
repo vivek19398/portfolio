@@ -21,8 +21,8 @@ export default function TravelStoriesPage() {
   return (
     <div className="max-w-6xl mx-auto px-5 sm:px-8 py-12">
       <motion.header initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mb-10">
-        <p className="font-mono text-xs tracking-[0.35em] uppercase text-ember mb-3">Journey Logs</p>
-        <h1 className="font-display text-3xl sm:text-5xl text-mist tracking-wide">Travel Stories</h1>
+        <p className="font-mono text-[11px] tracking-[0.45em] uppercase text-gold mb-3 flex items-center gap-2.5"><svg width="10" height="10" viewBox="0 0 14 14" fill="none" aria-hidden="true" className="shrink-0"><path d="M7 0L8.8 5.2L14 7L8.8 8.8L7 14L5.2 8.8L0 7L5.2 5.2L7 0Z" fill="#c9a84c" /></svg>Journey Logs</p>
+        <h1 className="font-display text-3xl sm:text-5xl tracking-wide"><span className="gold-text">Travel Stories</span></h1>
       </motion.header>
 
       {stories === null ? (

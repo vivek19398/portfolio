@@ -45,8 +45,8 @@ export default function TravelHacksPage() {
   return (
     <div className="max-w-6xl mx-auto px-5 sm:px-8 py-12">
       <motion.header initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mb-10">
-        <p className="font-mono text-xs tracking-[0.35em] uppercase text-ember mb-3">Field Manual</p>
-        <h1 className="font-display text-3xl sm:text-5xl text-mist tracking-wide mb-6">Travel Hacks</h1>
+        <p className="font-mono text-[11px] tracking-[0.45em] uppercase text-gold mb-3 flex items-center gap-2.5"><svg width="10" height="10" viewBox="0 0 14 14" fill="none" aria-hidden="true" className="shrink-0"><path d="M7 0L8.8 5.2L14 7L8.8 8.8L7 14L5.2 8.8L0 7L5.2 5.2L7 0Z" fill="#c9a84c" /></svg>Field Manual</p>
+        <h1 className="font-display text-3xl sm:text-5xl tracking-wide mb-6"><span className="gold-text">Travel Hacks</span></h1>
 
         <div className="flex flex-col sm:flex-row gap-4">
           <label className="relative flex-1 max-w-md">
@@ -56,7 +56,7 @@ export default function TravelHacksPage() {
               placeholder="Search hacks, places, tags…"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full rounded-xl bg-charcoal/80 border border-white/10 pl-10 pr-4 py-2.5 text-sm text-mist placeholder:text-ash/50 focus:border-ember outline-none transition-colors"
+              className="w-full rounded-xl bg-charcoal/80 border border-white/10 pl-10 pr-4 py-2.5 text-sm text-mist placeholder:text-ash/50 focus:border-gold outline-none transition-colors"
             />
             <span aria-hidden="true" className="absolute left-3.5 top-1/2 -translate-y-1/2 text-ash">⌕</span>
           </label>
@@ -70,8 +70,8 @@ export default function TravelHacksPage() {
               onClick={() => setCategory(null)}
               className={`px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider border transition-all ${
                 category === null
-                  ? 'border-ember/60 bg-ember/15 text-ember'
-                  : 'border-white/10 text-ash hover:text-mist hover:border-white/25'
+                  ? 'border-gold/60 bg-gold/10 text-gold-light'
+                  : 'border-white/10 text-ash hover:text-parchment hover:border-gold/30'
               }`}
             >
               All
@@ -84,8 +84,8 @@ export default function TravelHacksPage() {
                 onClick={() => setCategory(category === c ? null : c)}
                 className={`px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider border transition-all ${
                   category === c
-                    ? 'border-ember/60 bg-ember/15 text-ember'
-                    : 'border-white/10 text-ash hover:text-mist hover:border-white/25'
+                    ? 'border-gold/60 bg-gold/10 text-gold-light'
+                    : 'border-white/10 text-ash hover:text-parchment hover:border-gold/30'
                 }`}
               >
                 {c}

@@ -24,7 +24,7 @@ export default function TravelHighlights({
           viewport={{ once: true }}
           transition={{ delay: i * 0.08, duration: 0.4 }}
           whileHover={{ scale: 1.08 }}
-          className="flex flex-col items-center gap-2 shrink-0"
+          className="group flex flex-col items-center gap-2 shrink-0 cursor-pointer"
         >
           <span className="story-ring block w-16 h-16 sm:w-20 sm:h-20">
             <CoverImage
@@ -34,7 +34,7 @@ export default function TravelHighlights({
               className="w-full h-full rounded-full border-2 border-void"
             />
           </span>
-          <span className="text-xs text-ash">{h.title}</span>
+          <span className="text-xs text-parchment/60 group-hover:text-gold-light transition-colors">{h.title}</span>
         </motion.button>
       ))}
     </div>

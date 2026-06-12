@@ -59,7 +59,7 @@ export default function TravelLightbox({ media, index, onClose, onNavigate }: Tr
             exit={{ scale: 0.95, y: 10, opacity: 0 }}
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
             onClick={(e) => e.stopPropagation()}
-            className="relative max-w-3xl w-full max-h-[88vh] flex flex-col glass-panel overflow-hidden"
+            className="relative max-w-3xl w-full max-h-[88vh] flex flex-col royal-border glass-panel overflow-hidden"
           >
             <div className="relative bg-black/40 flex items-center justify-center min-h-[240px] max-h-[62vh] overflow-hidden">
               {item.media_type === 'video' && item.public_url ? (
@@ -86,14 +86,14 @@ export default function TravelLightbox({ media, index, onClose, onNavigate }: Tr
                   <button
                     onClick={prev}
                     aria-label="Previous media"
-                    className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-void/60 backdrop-blur-sm border border-white/20 text-mist hover:border-ember/60 hover:text-ember transition-colors"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-void/60 backdrop-blur-sm border border-white/20 text-mist hover:border-gold/60 hover:text-gold-light transition-colors"
                   >
                     ‹
                   </button>
                   <button
                     onClick={next}
                     aria-label="Next media"
-                    className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-void/60 backdrop-blur-sm border border-white/20 text-mist hover:border-ember/60 hover:text-ember transition-colors"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-void/60 backdrop-blur-sm border border-white/20 text-mist hover:border-gold/60 hover:text-gold-light transition-colors"
                   >
                     ›
                   </button>
@@ -118,7 +118,7 @@ export default function TravelLightbox({ media, index, onClose, onNavigate }: Tr
                   {item.tags.length > 0 && (
                     <ul className="flex flex-wrap gap-1.5 mt-3" aria-label="Tags">
                       {item.tags.map((t) => (
-                        <li key={t} className="text-[10px] font-mono text-ember bg-ember/10 border border-ember/25 rounded-md px-2 py-0.5">
+                        <li key={t} className="text-[10px] font-mono text-gold-light bg-gold/10 border border-gold/30 rounded-md px-2 py-0.5">
                           #{t}
                         </li>
                       ))}

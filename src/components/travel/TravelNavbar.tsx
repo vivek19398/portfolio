@@ -23,7 +23,7 @@ export default function TravelNavbar() {
   }, [])
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
-    `text-sm transition-colors ${isActive ? 'text-ember' : 'text-ash hover:text-mist'}`
+    `text-[13px] tracking-[0.12em] uppercase transition-colors duration-200 relative after:absolute after:-bottom-1 after:left-0 after:h-px after:bg-gradient-to-r after:from-gold after:to-gold-light after:transition-all after:duration-300 ${isActive ? 'text-gold-light after:w-full' : 'text-parchment/60 hover:text-parchment after:w-0 hover:after:w-full'}`
 
   return (
     <motion.nav
@@ -31,13 +31,13 @@ export default function TravelNavbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-void/80 backdrop-blur-lg border-b border-white/5 shadow-lg shadow-black/40' : 'bg-transparent'
+        scrolled ? 'bg-void/85 backdrop-blur-lg border-b border-gold/15 shadow-lg shadow-black/40' : 'bg-transparent'
       }`}
       aria-label="Travel navigation"
     >
       <div className="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
-        <Link to="/" className="font-display text-xl tracking-widest text-mist hover:text-ember transition-colors">
-          VR<span className="text-ember">✈</span>
+        <Link to="/" className="font-display text-base tracking-[0.3em] uppercase text-gold hover:text-gold-light transition-colors">
+          Travel Galaxy
         </Link>
 
         <ul className="hidden md:flex items-center gap-6">
@@ -53,7 +53,7 @@ export default function TravelNavbar() {
               to="/work"
               className="text-xs font-mono uppercase tracking-wider text-voltage border border-voltage/40 rounded-lg px-3 py-1.5 hover:bg-voltage/10 transition-colors"
             >
-              ⌬ Work Universe
+              Work Universe
             </Link>
           </li>
         </ul>
@@ -97,7 +97,7 @@ export default function TravelNavbar() {
                 onClick={() => setOpen(false)}
                 className="block text-center text-xs font-mono uppercase tracking-wider text-voltage border border-voltage/40 rounded-lg px-3 py-2.5"
               >
-                ⌬ Work Universe
+                Work Universe
               </Link>
             </li>
           </motion.ul>

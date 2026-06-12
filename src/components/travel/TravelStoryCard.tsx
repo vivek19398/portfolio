@@ -11,25 +11,25 @@ export default function TravelStoryCard({ story, index = 0 }: { story: TravelSto
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.55, delay: (index % 3) * 0.1, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ y: -6 }}
-      className="glass-panel overflow-hidden img-zoom group flex flex-col"
+      className="royal-border glass-panel overflow-hidden img-zoom group flex flex-col"
     >
       <div className="relative h-48">
         <CoverImage src={story.cover_image_url} alt={story.title} className="w-full h-full" fallbackGlyph="📖" />
         {story.is_featured && (
-          <span className="absolute top-3 right-3 text-[10px] font-mono uppercase tracking-widest bg-void/70 backdrop-blur-sm text-ember border border-ember/40 rounded-full px-2.5 py-1">
+          <span className="absolute top-3 right-3 text-[10px] font-mono uppercase tracking-widest bg-void/70 backdrop-blur-sm text-gold-light border border-gold/50 rounded-full px-2.5 py-1">
             Featured
           </span>
         )}
       </div>
       <div className="p-5 flex flex-col flex-1">
-        <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-ember mb-2">
+        <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-gold mb-2">
           {story.travel_date
             ? new Date(story.travel_date).toLocaleDateString('en-IE', { month: 'long', year: 'numeric' })
             : 'Travel Story'}
           {' · '}
           {story.reading_time} min read
         </p>
-        <h3 className="font-display text-lg text-mist group-hover:text-ember transition-colors">{story.title}</h3>
+        <h3 className="font-display text-lg text-mist group-hover:text-gold-light transition-colors">{story.title}</h3>
         <p className="text-sm text-ash mt-2 leading-relaxed line-clamp-3 flex-1">{story.excerpt}</p>
         {story.tags.length > 0 && (
           <ul className="flex flex-wrap gap-1.5 mt-3" aria-label="Tags">
@@ -42,7 +42,7 @@ export default function TravelStoryCard({ story, index = 0 }: { story: TravelSto
         )}
         <Link
           to={`/travel/stories/${story.slug}`}
-          className="inline-flex items-center gap-1.5 mt-4 text-xs font-mono uppercase tracking-wider text-ember hover:text-mist transition-colors"
+          className="inline-flex items-center gap-1.5 mt-4 text-xs font-mono uppercase tracking-wider text-gold-light hover:text-parchment transition-colors"
         >
           Read story →
         </Link>

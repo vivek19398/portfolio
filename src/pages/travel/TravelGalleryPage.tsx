@@ -86,8 +86,8 @@ export default function TravelGalleryPage() {
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         className="mb-10"
       >
-        <p className="font-mono text-xs tracking-[0.35em] uppercase text-ember mb-3">The Visual Log</p>
-        <h1 className="font-display text-3xl sm:text-5xl text-mist tracking-wide mb-6">Gallery</h1>
+        <p className="font-mono text-[11px] tracking-[0.45em] uppercase text-gold mb-3 flex items-center gap-2.5"><svg width="10" height="10" viewBox="0 0 14 14" fill="none" aria-hidden="true" className="shrink-0"><path d="M7 0L8.8 5.2L14 7L8.8 8.8L7 14L5.2 8.8L0 7L5.2 5.2L7 0Z" fill="#c9a84c" /></svg>The Visual Log</p>
+        <h1 className="font-display text-3xl sm:text-5xl tracking-wide mb-6"><span className="gold-text">Gallery</span></h1>
         <DestinationFilter
           destinations={destinations}
           selected={destinationId}
@@ -109,9 +109,9 @@ export default function TravelGalleryPage() {
             <div ref={sentinelRef} className="py-10 flex justify-center">
               <button
                 onClick={() => void loadMore()}
-                className="inline-flex items-center gap-2 rounded-xl px-6 py-2.5 text-sm font-semibold border border-ember/40 text-ember bg-ember/5 hover:bg-ember/15 transition-all"
+                className="inline-flex items-center gap-2 rounded-xl px-6 py-2.5 text-sm font-semibold border border-gold/40 text-gold-light bg-gold/5 hover:bg-gold/15 hover:border-gold/70 transition-all cursor-pointer"
               >
-                Load more ✦
+                Load more
               </button>
             </div>
           )}

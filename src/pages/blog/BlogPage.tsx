@@ -29,8 +29,8 @@ export default function BlogPage() {
   return (
     <div className="max-w-6xl mx-auto px-5 sm:px-8 py-12">
       <motion.header initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mb-10">
-        <p className="font-mono text-xs tracking-[0.35em] uppercase text-royal mb-3">Captain's Log</p>
-        <h1 className="font-display text-3xl sm:text-5xl text-mist tracking-wide mb-6">Personal Blog</h1>
+        <p className="font-mono text-[11px] tracking-[0.45em] uppercase text-gold mb-3 flex items-center gap-2.5"><svg width="10" height="10" viewBox="0 0 14 14" fill="none" aria-hidden="true" className="shrink-0"><path d="M7 0L8.8 5.2L14 7L8.8 8.8L7 14L5.2 8.8L0 7L5.2 5.2L7 0Z" fill="#c9a84c" /></svg>Captain's Log</p>
+        <h1 className="font-display text-3xl sm:text-5xl tracking-wide mb-6"><span className="gold-text">Personal Blog</span></h1>
 
         {categories.length > 1 && (
           <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter by category">
@@ -40,8 +40,8 @@ export default function BlogPage() {
               onClick={() => setCategory(null)}
               className={`px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider border transition-all ${
                 category === null
-                  ? 'border-royal/60 bg-royal/15 text-royal'
-                  : 'border-white/10 text-ash hover:text-mist hover:border-white/25'
+                  ? 'border-gold/60 bg-gold/10 text-gold-light'
+                  : 'border-white/10 text-ash hover:text-parchment hover:border-gold/30'
               }`}
             >
               All
@@ -54,8 +54,8 @@ export default function BlogPage() {
                 onClick={() => setCategory(category === c ? null : c)}
                 className={`px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider border transition-all ${
                   category === c
-                    ? 'border-royal/60 bg-royal/15 text-royal'
-                    : 'border-white/10 text-ash hover:text-mist hover:border-white/25'
+                    ? 'border-gold/60 bg-gold/10 text-gold-light'
+                    : 'border-white/10 text-ash hover:text-parchment hover:border-gold/30'
                 }`}
               >
                 {c}
