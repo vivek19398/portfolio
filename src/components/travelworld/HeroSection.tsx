@@ -46,6 +46,18 @@ function Suitcase() {
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-5 text-center">
+      {/* Real golden-hour backdrop, heavily darkened so the title reads */}
+      <img
+        src="/journey/hero-sunset.webp"
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0"
+        style={{ background: 'linear-gradient(180deg, rgba(5,5,7,0.7) 0%, rgba(5,5,7,0.5) 40%, rgba(5,5,7,0.8) 100%)' }}
+      />
       <span aria-hidden="true" className="grain-overlay z-[5]" />
       <span aria-hidden="true" className="vignette-overlay z-[4]" />
 

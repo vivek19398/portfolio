@@ -11,6 +11,8 @@
  * with an <img>/<video>/<Lottie> while keeping the wrapper class hooks.
  */
 
+import BgVideo from './BgVideo'
+
 const SVG_PROPS = {
   viewBox: '0 0 1200 700',
   preserveAspectRatio: 'xMidYMid slice',
@@ -234,39 +236,34 @@ export function BoardingScene() {
 }
 
 export function WindowScene() {
+  // Real plane-window footage shows through the punched-out cabin window.
   return (
-    <svg {...SVG_PROPS}>
-      <defs>
-        <clipPath id="tw-window-clip">
-          <rect x="380" y="120" width="440" height="460" rx="210" />
-        </clipPath>
-      </defs>
-      {/* Cabin wall */}
-      <rect width="1200" height="700" fill="#11151d" />
-      <rect width="1200" height="700" fill="url(#tw-cabin)" opacity="0.4" />
-      {/* Sky seen through the window */}
-      <g clipPath="url(#tw-window-clip)">
-        <rect x="380" y="120" width="440" height="460" fill="#0b1d3a" />
-        <rect x="380" y="120" width="440" height="460" fill="url(#tw-glow)" />
-      </g>
-      {/* Window frame */}
-      <rect x="356" y="96" width="488" height="508" rx="234" fill="none" stroke="#1c222e" strokeWidth="44" />
-      <rect x="378" y="118" width="444" height="464" rx="212" fill="none" stroke="#2a323f" strokeWidth="6" />
-      {/* Shade + seat hint */}
-      <rect x="356" y="96" width="488" height="40" rx="20" fill="#222a36" />
-      <rect x="120" y="560" width="320" height="140" rx="20" fill="#1a2230" />
-      <rect x="760" y="560" width="320" height="140" rx="20" fill="#1a2230" />
-      <defs>
-        <radialGradient id="tw-glow" cx="50%" cy="40%" r="70%">
-          <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.35" />
-          <stop offset="100%" stopColor="#0b1d3a" stopOpacity="0" />
-        </radialGradient>
-        <linearGradient id="tw-cabin" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#2a323f" />
-          <stop offset="1" stopColor="#0a0d13" />
-        </linearGradient>
-      </defs>
-    </svg>
+    <div className="relative w-full h-full">
+      <BgVideo src="/journey/flight.mp4" poster="/journey/flight-poster.webp" className="absolute inset-0" />
+      <svg {...SVG_PROPS} className="w-full h-full absolute inset-0">
+        <defs>
+          {/* White = visible cabin wall, black = the see-through window hole */}
+          <mask id="tw-window-hole">
+            <rect width="1200" height="700" fill="#fff" />
+            <rect x="470" y="150" width="260" height="400" rx="120" fill="#000" />
+          </mask>
+          <linearGradient id="tw-cabin" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="#1a212c" />
+            <stop offset="1" stopColor="#0a0d13" />
+          </linearGradient>
+        </defs>
+        {/* Cabin wall with the window punched out */}
+        <rect width="1200" height="700" fill="url(#tw-cabin)" mask="url(#tw-window-hole)" />
+        {/* Metallic window frame */}
+        <rect x="452" y="132" width="296" height="436" rx="148" fill="none" stroke="#1c222e" strokeWidth="40" />
+        <rect x="470" y="150" width="260" height="400" rx="120" fill="none" stroke="#2a323f" strokeWidth="6" />
+        <rect x="470" y="150" width="260" height="400" rx="120" fill="none" stroke="#000" strokeWidth="2" opacity="0.4" />
+        {/* Shade + seat hints */}
+        <rect x="452" y="132" width="296" height="34" rx="17" fill="#222a36" />
+        <rect x="90" y="560" width="320" height="140" rx="22" fill="#161d28" />
+        <rect x="790" y="560" width="320" height="140" rx="22" fill="#161d28" />
+      </svg>
+    </div>
   )
 }
 
@@ -279,7 +276,7 @@ export function CloudLayer({ className = '' }: { className?: string }) {
     { x: 460, y: 420, s: 0.6 },
   ]
   return (
-    <div className={`absolute inset-0 pointer-events-none ${className}`} style={{ clipPath: 'ellipse(220px 230px at 50% 50%)' }}>
+    <div className={`absolute inset-0 pointer-events-none ${className}`} style={{ clipPath: 'inset(21.4% 39.2% 21.4% 39.2% round 60px)' }}>
       <svg {...SVG_PROPS}>
         {clouds.map((c, i) => (
           <g key={i} className="tw-fly-cloud" transform={`translate(${c.x},${c.y}) scale(${c.s})`} opacity="0.85">
@@ -328,44 +325,25 @@ export function MapRouteScene() {
 }
 
 export function DestinationScene() {
-  const buildings = [
-    { x: 120, w: 90, h: 240, c: '#243042' },
-    { x: 220, w: 70, h: 320, c: '#2a3646' },
-    { x: 300, w: 110, h: 200, c: '#1d2840' },
-    { x: 420, w: 80, h: 380, c: '#2e3e54' },
-    { x: 510, w: 96, h: 280, c: '#243042' },
-    { x: 616, w: 70, h: 420, c: '#34465f' },
-    { x: 696, w: 110, h: 240, c: '#1d2840' },
-    { x: 816, w: 84, h: 340, c: '#2a3646' },
-    { x: 910, w: 100, h: 220, c: '#243042' },
-    { x: 1020, w: 78, h: 300, c: '#2e3e54' },
-  ]
+  // Real arrival footage (a misty lakeside) with a cinematic scrim + title.
   return (
     <div className="relative w-full h-full">
-      <svg {...SVG_PROPS}>
-        {/* Sun + water */}
-        <circle cx="600" cy="250" r="120" fill="#f5b85a" opacity="0.35" />
-        <circle cx="600" cy="250" r="78" fill="#f5c97a" opacity="0.6" />
-        <rect y="560" width="1200" height="140" fill="#10243a" opacity="0.8" />
-        {/* Skyline */}
-        <g>
-          {buildings.map((b, i) => (
-            <g key={i} className="tw-dest-building">
-              <rect x={b.x} y={560 - b.h} width={b.w} height={b.h} fill={b.c} />
-              {[...Array(Math.floor(b.h / 40))].map((_, r) => (
-                <rect key={r} x={b.x + 10} y={560 - b.h + 16 + r * 40} width={b.w - 20} height="14" fill="#e8c97a" opacity={(i + r) % 3 === 0 ? 0.7 : 0.18} />
-              ))}
-            </g>
-          ))}
-        </g>
-        {/* Runway lights */}
+      <BgVideo src="/journey/dest.mp4" poster="/journey/dest-poster.webp" className="absolute inset-0" objectPosition="center" />
+      {/* Legibility scrims */}
+      <div aria-hidden="true" className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(5,5,7,0.55) 0%, rgba(5,5,7,0.05) 35%, rgba(5,5,7,0.15) 70%, rgba(5,5,7,0.85) 100%)' }} />
+      <span aria-hidden="true" className="vignette-overlay" />
+      <span aria-hidden="true" className="grain-overlay" />
+      {/* Runway-light flourish along the base (kept from the original) */}
+      <svg {...SVG_PROPS} className="w-full h-full absolute inset-0">
         {[...Array(12)].map((_, i) => (
-          <circle key={i} cx={120 + i * 90} cy={640} r="4" fill="#c9a84c" opacity="0.7" />
+          <circle key={i} className="tw-dest-building" cx={120 + i * 90} cy={648} r="4" fill="#c9a84c" opacity="0.75" />
         ))}
       </svg>
-      <div className="tw-dest-title absolute inset-x-0 top-[16%] text-center px-6">
-        <p className="font-mono text-[11px] tracking-[0.45em] uppercase text-gold mb-3">You have arrived</p>
-        <h2 className="font-display text-4xl sm:text-6xl"><span className="gold-text">Destination Unlocked</span></h2>
+      <div className="tw-dest-title absolute inset-x-0 top-[18%] text-center px-6">
+        <p className="font-mono text-[11px] tracking-[0.45em] uppercase text-gold mb-3 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">You have arrived</p>
+        <h2 className="font-display text-4xl sm:text-6xl drop-shadow-[0_4px_20px_rgba(0,0,0,0.7)]">
+          <span className="gold-text">Destination Unlocked</span>
+        </h2>
       </div>
     </div>
   )

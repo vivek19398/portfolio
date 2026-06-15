@@ -1,8 +1,6 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import HeroSection from '../../components/travelworld/HeroSection'
 import TravelScrollJourney from '../../components/travelworld/TravelScrollJourney'
-import JourneyProgress from '../../components/travelworld/JourneyProgress'
 import { BlogSection, DestinationCards, TravelGallery, TravelHacks } from '../../components/travelworld/afterJourney'
 import TravelFooter from '../../components/travel/TravelFooter'
 import { useLenis } from '../../hooks/useLenis'
@@ -24,9 +22,6 @@ export default function TravelWorld() {
   )
   usePageView()
   useLenis() // smooth scroll (auto-disabled under prefers-reduced-motion)
-
-  const reduceMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  const [progress, setProgress] = useState(0)
 
   return (
     <div className="relative bg-void text-mist min-h-screen">
@@ -51,8 +46,7 @@ export default function TravelWorld() {
       <HeroSection />
 
       {/* The cinematic journey */}
-      <TravelScrollJourney onProgress={setProgress} />
-      {!reduceMotion && <JourneyProgress progress={progress} />}
+      <TravelScrollJourney />
 
       {/* After the journey: existing Supabase-backed content */}
       <div className="relative max-w-6xl mx-auto px-5 sm:px-8 py-24 space-y-24">
