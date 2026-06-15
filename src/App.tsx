@@ -8,6 +8,7 @@ import LoadingSkeleton from './components/LoadingSkeleton'
 // Travel universe + admin are lazy so the gateway and work universe
 // never pay for them up front.
 const Admin = lazy(() => import('./pages/Admin'))
+const TravelWorld = lazy(() => import('./pages/travel/TravelWorld'))
 const TravelLayout = lazy(() => import('./pages/travel/TravelLayout'))
 const TravelHome = lazy(() => import('./pages/travel/TravelHome'))
 const TravelGalleryPage = lazy(() => import('./pages/travel/TravelGalleryPage'))
@@ -38,6 +39,9 @@ export default function App() {
             <Route path="/" element={<Gateway />} />
             <Route path="/work" element={<Home />} />
             <Route path="/admin" element={<Admin />} />
+
+            {/* Standalone full-bleed cinematic journey (its own nav/footer) */}
+            <Route path="/travel/journey" element={<TravelWorld />} />
 
             <Route element={<TravelLayout />}>
               <Route path="/travel" element={<TravelHome />} />

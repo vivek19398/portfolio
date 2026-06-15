@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 const LINKS = [
   { to: '/travel', label: 'Home', end: true },
+  { to: '/travel/journey', label: 'Journey' },
   { to: '/travel/gallery', label: 'Gallery' },
   { to: '/travel/stories', label: 'Stories' },
   { to: '/travel/hacks', label: 'Hacks' },
