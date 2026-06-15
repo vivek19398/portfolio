@@ -44,7 +44,7 @@ export default function App() {
             <Route path="/travel/journey" element={<TravelWorld />} />
 
             <Route element={<TravelLayout />}>
-              <Route path="/travel" element={<TravelHome />} />
+              <Route path="/travel/journey" element={<TravelHome />} />
               <Route path="/travel/gallery" element={<TravelGalleryPage />} />
               <Route path="/travel/stories" element={<TravelStoriesPage />} />
               <Route path="/travel/stories/:slug" element={<TravelStoryDetail />} />
