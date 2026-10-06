@@ -8,5 +8,5 @@ dist
 .vercel
 .netlify
 .claude/skills/
-images/
+/images/
 GOT-main/

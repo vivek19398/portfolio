@@ -33,15 +33,7 @@ export default function SkillCard({ skill }: { skill: Skill }) {
           </span>
         )}
       </span>
-      <div className="w-20 sm:w-24 h-1.5 rounded-full bg-white/10 overflow-hidden shrink-0 relative" aria-hidden="true">
-        <motion.div
-          initial={{ width: 0 }}
-          whileInView={{ width: `${skill.proficiency_level}%` }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, ease: 'easeOut', delay: 0.2 }}
-          className="h-full rounded-full bg-gradient-to-r from-voltage via-gold to-ember"
-        />
-      </div>
+
     </motion.div>
   )
 }

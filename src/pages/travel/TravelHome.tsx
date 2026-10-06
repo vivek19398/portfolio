@@ -165,7 +165,7 @@ export default function TravelHome() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="mailto:info@atlasdrifter.com"
+              href="mailto:vivek000@outlook.com"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold bg-gradient-to-r from-gold-light via-gold to-gold-dim text-void shadow-lg shadow-gold/20 transition-all hover:brightness-110"
             >
               Say Hello

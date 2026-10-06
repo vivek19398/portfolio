@@ -4,6 +4,7 @@ import SectionWrapper from '../components/SectionWrapper'
 import ScannerBorder from '../components/effects/ScannerBorder'
 import { supabase } from '../lib/supabase'
 import { sanitize, validateContactForm, type ContactFormValues, type FieldErrors } from '../lib/validation'
+import { resumeContact } from '../data/portfolioData'
 import type { Profile } from '../types/database'
 
 const EMPTY: ContactFormValues = { name: '', email: '', subject: '', message: '', honeypot: '' }
@@ -73,10 +74,14 @@ export default function ContactForm({ profile }: { profile: Profile }) {
           className="md:col-span-2 space-y-6"
         >
           <p className="text-ash leading-relaxed">
-            Open to AI Engineer and Data Engineer opportunities. Whether it's a role, a collaboration,
-            or a data problem worth solving — my inbox is open.
+            Open to senior software engineering, GenAI, and backend opportunities. Whether it's a role,
+            a collaboration, or a challenging system to build — my inbox is open.
           </p>
+          <p className="text-sm text-gold-light">{resumeContact.work_authorization}</p>
           <div className="space-y-3 text-sm">
+            <a href={resumeContact.phone_url} className="block text-mist hover:text-voltage">{resumeContact.phone}</a>
+            <a href={resumeContact.leetcode_url} target="_blank" rel="noopener noreferrer" className="block text-mist hover:text-voltage">LeetCode ↗</a>
+            <a href={resumeContact.pypi_url} target="_blank" rel="noopener noreferrer" className="block text-mist hover:text-voltage">PyPI ↗</a>
             <a href={`mailto:${profile.email}`} className="flex items-center gap-3 text-mist hover:text-voltage transition-colors">
               <span className="text-voltage" aria-hidden="true">✉</span> {profile.email}
             </a>

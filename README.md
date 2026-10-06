@@ -1,3 +1,9 @@
+## Current résumé content
+
+The local portfolio content and `004_seed_initial_data.sql` match the owner-supplied `VivekRanjan.pdf` (updated 6 October 2026). The download at `/Vivek_Ranjan_Resume.pdf` is that exact PDF. Profile: Senior Software Engineer, Dublin; projects: GraphCore Studio and AstraPDF; certifications: Azure Fundamentals (2022) and IBM RAG and Agentic AI (2026). The site keeps its story-style titles and season flight.
+
+The seed is for a fresh database only. Existing Supabase content is still fetched when configured and needs a separate content update; this local task did not change a remote database. No skill proficiency scores are displayed because the résumé does not supply them.
+
 # Vivek Ranjan — Dual-Universe Personal Site
 
 A cinematic two-galaxy personal site: visitors land on a cosmic **gateway** (`/`) and choose between the **Work Universe** (`/work` — AI & Data Engineering portfolio) and the **Travel Galaxy** (`/travel` — Instagram-style travel blog, stories, hacks, and personal writing). Powered by **React + TypeScript + Tailwind + Framer Motion** and **Supabase** (PostgreSQL, Auth, Storage, RLS).

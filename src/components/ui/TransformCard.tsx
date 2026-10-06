@@ -41,8 +41,8 @@ export default function TransformCard({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 32, clipPath: 'inset(0 100% 0 0)' }}
-      whileInView={{ opacity: 1, y: 0, clipPath: 'inset(0 0% 0 0)' }}
+      initial={false}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.55, delay: bootDelay, ease: [0.22, 1, 0.36, 1] }}
       className="h-full"

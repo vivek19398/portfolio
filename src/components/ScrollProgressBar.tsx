@@ -16,7 +16,7 @@ export default function ScrollProgressBar() {
   return (
     <div aria-hidden="true" className="fixed top-0 left-0 right-0 h-[3px] z-[60]">
       <motion.div
-        className="absolute inset-0 origin-left bg-gradient-to-r from-voltage via-royal to-crimson shadow-[0_0_10px_rgba(168,85,247,0.7)]"
+        className="absolute inset-0 origin-left bg-gradient-to-r from-[#75603b] to-[#c4aa73]"
         style={{ scaleX: progress }}
       />
       <motion.div

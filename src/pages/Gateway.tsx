@@ -1,81 +1,30 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { AnimatePresence, motion } from 'framer-motion'
-import CosmicGatewayBackground from '../components/gateway/CosmicGatewayBackground'
-import PortalCard from '../components/gateway/PortalCard'
+import { Link, useNavigate } from 'react-router-dom'
 import WormholeTransition from '../components/gateway/WormholeTransition'
+import Cloudscape from '../components/gateway/Cloudscape'
 import type { PortalVariant } from '../components/gateway/WormholePortal'
 import { usePageMeta } from '../hooks/usePageMeta'
 import { trackEvent } from '../hooks/useAnalytics'
+import '../styles/atlas.css'
 
-/** GalaxyGateway: the cinematic two-universe entry screen at `/`. */
 export default function Gateway() {
-  usePageMeta(
-    'Vivek Ranjan — Choose Your Universe',
-    'Enter the Work Universe (AI & Data Engineering portfolio) or the Travel Galaxy (stories, photos, and travel hacks) of Vivek Ranjan.',
-  )
+  usePageMeta('The Atlas Drifter — Vivek Ranjan', 'One life. Many stories. Explore the story of Vivek Ranjan and the things he builds.')
   const navigate = useNavigate()
   const [jump, setJump] = useState<PortalVariant | null>(null)
-
-  const enter = (variant: PortalVariant) => {
+  function enter(variant: PortalVariant) {
+    if (jump) return
     trackEvent('gateway_enter', { universe: variant })
     setJump(variant)
   }
-
-  return (
-    <main className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-5 py-16">
-      <CosmicGatewayBackground />
-
-      <motion.header
-        initial={{ opacity: 0, y: -30, filter: 'blur(6px)' }}
-        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-        className="text-center mb-12 sm:mb-16"
-      >
-        <p className="font-mono text-xs sm:text-sm tracking-[0.45em] uppercase text-ash mb-4">
-          Vivek Ranjan
-        </p>
-        <h1 className="font-display text-3xl sm:text-5xl md:text-6xl text-mist tracking-wide">
-          Choose Your <span className="gradient-text">Universe</span>
-        </h1>
-      </motion.header>
-
-      <div className="relative z-10 flex flex-col md:flex-row items-stretch justify-center gap-8 sm:gap-12 w-full max-w-4xl">
-        <PortalCard
-          variant="work"
-          subtitle="Universe 01 · Professional"
-          title="Work Universe"
-          hint="AI & Data Engineering — pipelines, GenAI systems, projects, and the engineering journey."
-          onEnter={() => enter('work')}
-          delay={0.25}
-        />
-        <PortalCard
-          variant="travel"
-          subtitle="Universe 02 · Explorer"
-          title="Travel Galaxy"
-          hint="Journeys, photo galleries, travel hacks, and personal writing from the road."
-          onEnter={() => enter('travel')}
-          delay={0.45}
-        />
-      </div>
-
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.4, duration: 1 }}
-        className="relative z-10 mt-12 text-xs text-ash font-mono tracking-widest"
-      >
-        TWO WORLDS · ONE TRAVELLER
-      </motion.p>
-
-      <AnimatePresence>
-        {jump && (
-          <WormholeTransition
-            variant={jump}
-            onComplete={() => navigate(jump === 'work' ? '/work' : '/travel')}
-          />
-        )}
-      </AnimatePresence>
-    </main>
-  )
+  return <main id="main" className="atlas-gateway">
+    <Cloudscape />
+    <header className="atlas-masthead"><Link to="/" className="atlas-brand">AD<span>THE ATLAS DRIFTER</span></Link><span className="atlas-author">A STORY BY VIVEK RANJAN</span><a href="/Vivek_Ranjan_Resume.pdf" target="_blank" rel="noreferrer">View résumé ↗</a></header>
+    <div className="atlas-embers" aria-hidden="true" />
+    <section className="atlas-intro"><p className="atlas-eyebrow">AN ONGOING ORIGINAL</p><h1>The Atlas<br /><em>Drifter.</em></h1><p className="atlas-tagline">One life. Many stories.</p><p className="atlas-description">Every idea has an origin story.<br />Take flight. See where the story takes you.</p></section>
+    <section className="atlas-seasons atlas-single-season" aria-label="Start the story">
+      <button disabled={jump !== null} onClick={() => enter('work')} className="atlas-season atlas-season-build"><span className="atlas-season-copy"><span className="atlas-eyebrow">ENTER THE STORY</span><h2>Behind the Build</h2><span>Ideas. Obstacles. Things that made a difference.</span></span><span className="atlas-play" aria-hidden="true">↗</span></button>
+    </section>
+    <footer className="atlas-gateway-footer"><span>ONE LIFE. AN UNFOLDING STORY.</span><span>ENTER THE STORY TO TAKE FLIGHT</span></footer>
+    {jump && <WormholeTransition variant={jump} onComplete={() => { window.scrollTo(0, 0); navigate(jump === 'work' ? '/work' : '/travel') }} />}
+  </main>
 }

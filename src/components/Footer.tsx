@@ -1,3 +1,4 @@
+import { resumeContact } from '../data/portfolioData'
 import type { Profile } from '../types/database'
 
 export default function Footer({ profile }: { profile: Profile }) {
@@ -14,7 +15,7 @@ export default function Footer({ profile }: { profile: Profile }) {
           </p>
         </div>
 
-        <nav aria-label="Social links" className="flex items-center gap-5">
+        <nav aria-label="Social links" className="flex flex-wrap items-center justify-center gap-5">
           <a href={profile.linkedin_url} target="_blank" rel="noopener noreferrer" className="text-ash hover:text-gold-light transition-colors" aria-label="LinkedIn">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.27c-.97 0-1.75-.79-1.75-1.76s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.76-1.75 1.76zm13.5 12.27h-3v-5.6c0-3.37-4-3.11-4 0v5.6h-3v-11h3v1.77c1.4-2.59 7-2.78 7 2.48v6.75z" />
@@ -31,6 +32,8 @@ export default function Footer({ profile }: { profile: Profile }) {
               <path d="m2 7 10 6 10-6" />
             </svg>
           </a>
+          <a href={resumeContact.leetcode_url} target="_blank" rel="noopener noreferrer" className="text-xs text-ash hover:text-gold-light">LeetCode</a>
+          <a href={resumeContact.pypi_url} target="_blank" rel="noopener noreferrer" className="text-xs text-ash hover:text-gold-light">PyPI</a>
         </nav>
 
         <button

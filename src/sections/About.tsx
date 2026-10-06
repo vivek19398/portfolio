@@ -3,10 +3,10 @@ import SectionWrapper from '../components/SectionWrapper'
 import type { Profile } from '../types/database'
 
 const HIGHLIGHTS = [
-  { value: '4+', label: 'Years of Engineering' },
+  { value: '~5', label: 'Years of Engineering' },
   { value: '10M+', label: 'Patient Records Processed' },
   { value: '150+', label: 'Warehouse Tables on AWS' },
-  { value: '95%', label: 'Reduction in Out-of-Policy LLM Output' },
+  { value: '8+', label: 'Analytics Hours Saved per Week' },
 ]
 
 export default function About({ profile }: { profile: Profile }) {

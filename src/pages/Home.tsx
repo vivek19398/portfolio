@@ -1,7 +1,6 @@
 import { Suspense, lazy } from 'react'
 import Navbar from '../components/Navbar'
 import CosmicBackground from '../components/effects/CosmicBackground'
-import CursorEnergyTrail from '../components/effects/CursorEnergyTrail'
 import ScrollProgressBar from '../components/ScrollProgressBar'
 import LoadingSkeleton from '../components/LoadingSkeleton'
 import Hero from '../sections/Hero'
@@ -32,15 +31,14 @@ export default function Home() {
   const { data } = usePortfolioData()
   usePageView()
   usePageMeta(
-    'Vivek Ranjan — AI & Data Engineer',
-    'AI & Data Engineer with 4+ years building scalable data platforms, production RAG systems, and healthcare analytics on AWS. Python, PySpark, LangChain, Redshift, Snowflake.',
+    'Behind the Build — The Atlas Drifter',
+    'Vivek Ranjan, Senior Software Engineer in Dublin with approximately 5 years building GenAI, agentic workflows, and cloud-native applications. Explore GraphCore Studio and AstraPDF.',
   )
 
   return (
     <>
       <ScrollProgressBar />
       <CosmicBackground />
-      <CursorEnergyTrail />
       <Navbar resumeUrl={data.profile.resume_url} />
 
       <main id="main">

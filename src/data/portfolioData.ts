@@ -1,273 +1,666 @@
-import type { PortfolioData } from '../types/database'
+import type { PortfolioData } from "../types/database"
 
-/**
- * Static fallback content generated from Vivek Ranjan's resume.
- * Used when Supabase is not configured or unreachable, so the site
- * always renders. The SQL seed file mirrors this data — once Supabase
- * is live, the database becomes the source of truth.
- */
+// Content transcribed from VivekRanjan.pdf, supplied by the owner.
+// Proficiency values are placeholders required by the DB schema, never displayed.
 export const fallbackData: PortfolioData = {
-  profile: {
-    id: 'local',
-    full_name: 'Vivek Ranjan',
-    headline: 'AI & Data Engineer',
-    short_tagline:
-      'Engineering scalable data platforms and production-grade GenAI systems — 4+ years across healthcare, pharma, and supply chain.',
-    location: 'Cork, Ireland',
-    email: 'info@atlasdrifter.com',
-    linkedin_url: 'https://linkedin.com/in/ranjanvivek19',
-    github_url: 'https://github.com/vivek19398',
-    resume_url: '/Vivek_Ranjan_Resume.pdf',
-    about_text:
-      'I am a software developer with 4+ years of experience in Python, Generative AI, and Data Engineering, with deep domain expertise in pharmaceuticals and supply chain. At Eli Lilly, I built and scaled healthcare reporting pipelines processing 10M+ patient records across 150+ tables on AWS (S3, Glue, Redshift), cutting manual operations by 40%, and engineered a production RAG pipeline with LangChain and Pinecone that improved retrieval accuracy by 25%. I work across the full data and AI stack — Python, SQL, PySpark, Airflow, Snowflake, Redshift — and bring insights to life with Tableau and Power BI. Currently pursuing a Master of Engineering in Artificial Intelligence and Computer Vision at the University of Limerick, I am authorized to work in Ireland and open to AI Engineer and Data Engineer opportunities.',
+  "profile": {
+    "id": "local",
+    "full_name": "Vivek Ranjan",
+    "headline": "Senior Software Engineer",
+    "short_tagline": "Turning ideas into production-grade applications — approximately 5 years building GenAI systems, agentic workflows, and cloud-native platforms.",
+    "location": "Dublin, Ireland",
+    "email": "vivek000@outlook.com",
+    "linkedin_url": "https://www.linkedin.com/in/ranjanvivek19",
+    "github_url": "https://github.com/vivek19398/",
+    "resume_url": "/Vivek_Ranjan_Resume.pdf",
+    "about_text": "Senior Software Engineer with approximately 5 years of experience designing and building production-grade GenAI, Agentic AI, RAG, and cloud-native applications using Python, FastAPI, LangChain, LangGraph, and cloud services. Experienced in scalable LLM-powered APIs, AI guardrails, evaluation frameworks, multimodal AI, and enterprise data platforms. Built and scaled AWS data pipelines processing 10M+ patient records across therapeutic areas, delivering AI-enabled solutions in enterprise pharmaceutical environments. Eligible to work in Ireland without employer sponsorship (Stamp 1G)."
   },
-
-  skills: [
-    // Data Engineering
-    { id: 's1', category: 'Data Engineering', name: 'PySpark', icon_name: 'spark', proficiency_level: 90, display_order: 1, is_featured: true },
-    { id: 's2', category: 'Data Engineering', name: 'Airflow', icon_name: 'airflow', proficiency_level: 85, display_order: 2, is_featured: true },
-    { id: 's3', category: 'Data Engineering', name: 'Kafka', icon_name: 'kafka', proficiency_level: 75, display_order: 3, is_featured: false },
-    { id: 's4', category: 'Data Engineering', name: 'ETL / ELT Pipelines', icon_name: 'pipeline', proficiency_level: 92, display_order: 4, is_featured: true },
-    { id: 's5', category: 'Data Engineering', name: 'Data Warehousing', icon_name: 'warehouse', proficiency_level: 88, display_order: 5, is_featured: false },
-    // Cloud & DevOps
-    { id: 's6', category: 'Cloud & DevOps', name: 'AWS (S3, Lambda, Glue, Redshift, Athena)', icon_name: 'aws', proficiency_level: 90, display_order: 1, is_featured: true },
-    { id: 's7', category: 'Cloud & DevOps', name: 'Docker', icon_name: 'docker', proficiency_level: 80, display_order: 2, is_featured: false },
-    { id: 's8', category: 'Cloud & DevOps', name: 'Kubernetes', icon_name: 'kubernetes', proficiency_level: 70, display_order: 3, is_featured: false },
-    { id: 's9', category: 'Cloud & DevOps', name: 'GitHub Actions (CI/CD)', icon_name: 'github', proficiency_level: 88, display_order: 4, is_featured: true },
-    // AI / ML
-    { id: 's10', category: 'AI / ML', name: 'LangChain & LangGraph', icon_name: 'chain', proficiency_level: 90, display_order: 1, is_featured: true },
-    { id: 's11', category: 'AI / ML', name: 'RAG Systems', icon_name: 'rag', proficiency_level: 92, display_order: 2, is_featured: true },
-    { id: 's12', category: 'AI / ML', name: 'OpenAI API', icon_name: 'openai', proficiency_level: 88, display_order: 3, is_featured: false },
-    { id: 's13', category: 'AI / ML', name: 'Pinecone & FAISS', icon_name: 'vector', proficiency_level: 85, display_order: 4, is_featured: false },
-    { id: 's14', category: 'AI / ML', name: 'PyTorch', icon_name: 'pytorch', proficiency_level: 75, display_order: 5, is_featured: false },
-    { id: 's15', category: 'AI / ML', name: 'MCP (Model Context Protocol)', icon_name: 'mcp', proficiency_level: 78, display_order: 6, is_featured: false },
-    // BI & Analytics
-    { id: 's16', category: 'BI & Analytics', name: 'Tableau', icon_name: 'tableau', proficiency_level: 82, display_order: 1, is_featured: false },
-    { id: 's17', category: 'BI & Analytics', name: 'Power BI', icon_name: 'powerbi', proficiency_level: 82, display_order: 2, is_featured: false },
-    { id: 's18', category: 'BI & Analytics', name: 'Pandas & NumPy', icon_name: 'pandas', proficiency_level: 90, display_order: 3, is_featured: true },
-    { id: 's19', category: 'BI & Analytics', name: 'Streamlit', icon_name: 'streamlit', proficiency_level: 85, display_order: 4, is_featured: false },
-    // Programming
-    { id: 's20', category: 'Programming', name: 'Python', icon_name: 'python', proficiency_level: 95, display_order: 1, is_featured: true },
-    { id: 's21', category: 'Programming', name: 'SQL', icon_name: 'sql', proficiency_level: 93, display_order: 2, is_featured: true },
-    { id: 's22', category: 'Programming', name: 'JavaScript', icon_name: 'javascript', proficiency_level: 72, display_order: 3, is_featured: false },
-    { id: 's23', category: 'Programming', name: 'FastAPI', icon_name: 'fastapi', proficiency_level: 82, display_order: 4, is_featured: false },
-    // Databases
-    { id: 's24', category: 'Databases', name: 'Amazon Redshift', icon_name: 'redshift', proficiency_level: 90, display_order: 1, is_featured: true },
-    { id: 's25', category: 'Databases', name: 'Snowflake', icon_name: 'snowflake', proficiency_level: 85, display_order: 2, is_featured: true },
-    { id: 's26', category: 'Databases', name: 'PostgreSQL', icon_name: 'postgres', proficiency_level: 80, display_order: 3, is_featured: false },
-    // Tools
-    { id: 's27', category: 'Tools', name: 'Git & GitHub', icon_name: 'git', proficiency_level: 92, display_order: 1, is_featured: false },
-    { id: 's28', category: 'Tools', name: 'JIRA', icon_name: 'jira', proficiency_level: 85, display_order: 2, is_featured: false },
-    { id: 's29', category: 'Tools', name: 'Postman', icon_name: 'postman', proficiency_level: 85, display_order: 3, is_featured: false },
+  "skills": [
+    {
+      "id": "s1",
+      "category": "Languages & Backend",
+      "name": "C++",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 1,
+      "is_featured": false
+    },
+    {
+      "id": "s2",
+      "category": "Languages & Backend",
+      "name": "Python",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 2,
+      "is_featured": false
+    },
+    {
+      "id": "s3",
+      "category": "Languages & Backend",
+      "name": "FastAPI",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 3,
+      "is_featured": false
+    },
+    {
+      "id": "s4",
+      "category": "Languages & Backend",
+      "name": "REST APIs",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 4,
+      "is_featured": false
+    },
+    {
+      "id": "s5",
+      "category": "Languages & Backend",
+      "name": "SQL",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 5,
+      "is_featured": false
+    },
+    {
+      "id": "s6",
+      "category": "Generative AI & Machine Learning",
+      "name": "RAG",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 1,
+      "is_featured": false
+    },
+    {
+      "id": "s7",
+      "category": "Generative AI & Machine Learning",
+      "name": "Agentic AI Workflows",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 2,
+      "is_featured": false
+    },
+    {
+      "id": "s8",
+      "category": "Generative AI & Machine Learning",
+      "name": "LangChain",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 3,
+      "is_featured": false
+    },
+    {
+      "id": "s9",
+      "category": "Generative AI & Machine Learning",
+      "name": "LangGraph",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 4,
+      "is_featured": false
+    },
+    {
+      "id": "s10",
+      "category": "Generative AI & Machine Learning",
+      "name": "LangSmith",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 5,
+      "is_featured": false
+    },
+    {
+      "id": "s11",
+      "category": "Generative AI & Machine Learning",
+      "name": "MCP",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 6,
+      "is_featured": false
+    },
+    {
+      "id": "s12",
+      "category": "Generative AI & Machine Learning",
+      "name": "OpenAI API",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 7,
+      "is_featured": false
+    },
+    {
+      "id": "s13",
+      "category": "Generative AI & Machine Learning",
+      "name": "Amazon Bedrock",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 8,
+      "is_featured": false
+    },
+    {
+      "id": "s14",
+      "category": "Generative AI & Machine Learning",
+      "name": "Microsoft Foundry",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 9,
+      "is_featured": false
+    },
+    {
+      "id": "s15",
+      "category": "Generative AI & Machine Learning",
+      "name": "Prompt Engineering",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 10,
+      "is_featured": false
+    },
+    {
+      "id": "s16",
+      "category": "Generative AI & Machine Learning",
+      "name": "Multimodal AI",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 11,
+      "is_featured": false
+    },
+    {
+      "id": "s17",
+      "category": "Generative AI & Machine Learning",
+      "name": "NLP",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 12,
+      "is_featured": false
+    },
+    {
+      "id": "s18",
+      "category": "Generative AI & Machine Learning",
+      "name": "Vector DB",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 13,
+      "is_featured": false
+    },
+    {
+      "id": "s19",
+      "category": "Generative AI & Machine Learning",
+      "name": "Pydantic",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 14,
+      "is_featured": false
+    },
+    {
+      "id": "s20",
+      "category": "Generative AI & Machine Learning",
+      "name": "PyTorch",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 15,
+      "is_featured": false
+    },
+    {
+      "id": "s21",
+      "category": "Cloud Platforms",
+      "name": "AWS Lambda",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 1,
+      "is_featured": false
+    },
+    {
+      "id": "s22",
+      "category": "Cloud Platforms",
+      "name": "AWS Glue",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 2,
+      "is_featured": false
+    },
+    {
+      "id": "s23",
+      "category": "Cloud Platforms",
+      "name": "AWS ECS",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 3,
+      "is_featured": false
+    },
+    {
+      "id": "s24",
+      "category": "Cloud Platforms",
+      "name": "Amazon S3",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 4,
+      "is_featured": false
+    },
+    {
+      "id": "s25",
+      "category": "Cloud Platforms",
+      "name": "AWS IAM",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 5,
+      "is_featured": false
+    },
+    {
+      "id": "s26",
+      "category": "Cloud Platforms",
+      "name": "Amazon VPC",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 6,
+      "is_featured": false
+    },
+    {
+      "id": "s27",
+      "category": "Cloud Platforms",
+      "name": "Amazon Athena",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 7,
+      "is_featured": false
+    },
+    {
+      "id": "s28",
+      "category": "Cloud Platforms",
+      "name": "Amazon Redshift",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 8,
+      "is_featured": false
+    },
+    {
+      "id": "s29",
+      "category": "Cloud Platforms",
+      "name": "Amazon RDS",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 9,
+      "is_featured": false
+    },
+    {
+      "id": "s30",
+      "category": "Cloud Platforms",
+      "name": "Amazon API Gateway",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 10,
+      "is_featured": false
+    },
+    {
+      "id": "s31",
+      "category": "Cloud Platforms",
+      "name": "Amazon SageMaker",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 11,
+      "is_featured": false
+    },
+    {
+      "id": "s32",
+      "category": "Cloud Platforms",
+      "name": "AWS CloudFormation",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 12,
+      "is_featured": false
+    },
+    {
+      "id": "s33",
+      "category": "Cloud Platforms",
+      "name": "Azure Data Factory",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 13,
+      "is_featured": false
+    },
+    {
+      "id": "s34",
+      "category": "Cloud Platforms",
+      "name": "Azure Databricks",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 14,
+      "is_featured": false
+    },
+    {
+      "id": "s35",
+      "category": "Data Engineering & Analytics",
+      "name": "PySpark",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 1,
+      "is_featured": false
+    },
+    {
+      "id": "s36",
+      "category": "Data Engineering & Analytics",
+      "name": "ETL Pipeline Automation",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 2,
+      "is_featured": false
+    },
+    {
+      "id": "s37",
+      "category": "Data Engineering & Analytics",
+      "name": "Snowflake",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 3,
+      "is_featured": false
+    },
+    {
+      "id": "s38",
+      "category": "Data Engineering & Analytics",
+      "name": "Microsoft Fabric",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 4,
+      "is_featured": false
+    },
+    {
+      "id": "s39",
+      "category": "Data Engineering & Analytics",
+      "name": "Microsoft SQL Server",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 5,
+      "is_featured": false
+    },
+    {
+      "id": "s40",
+      "category": "Data Engineering & Analytics",
+      "name": "Apache Airflow",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 6,
+      "is_featured": false
+    },
+    {
+      "id": "s41",
+      "category": "Data Engineering & Analytics",
+      "name": "Apache Kafka",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 7,
+      "is_featured": false
+    },
+    {
+      "id": "s42",
+      "category": "Data Engineering & Analytics",
+      "name": "Delta Lake",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 8,
+      "is_featured": false
+    },
+    {
+      "id": "s43",
+      "category": "Data Engineering & Analytics",
+      "name": "Power BI",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 9,
+      "is_featured": false
+    },
+    {
+      "id": "s44",
+      "category": "Data Engineering & Analytics",
+      "name": "LAAD",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 10,
+      "is_featured": false
+    },
+    {
+      "id": "s45",
+      "category": "DevOps & Collaboration",
+      "name": "Docker",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 1,
+      "is_featured": false
+    },
+    {
+      "id": "s46",
+      "category": "DevOps & Collaboration",
+      "name": "GitHub Actions",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 2,
+      "is_featured": false
+    },
+    {
+      "id": "s47",
+      "category": "DevOps & Collaboration",
+      "name": "Jenkins",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 3,
+      "is_featured": false
+    },
+    {
+      "id": "s48",
+      "category": "DevOps & Collaboration",
+      "name": "CI/CD",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 4,
+      "is_featured": false
+    },
+    {
+      "id": "s49",
+      "category": "DevOps & Collaboration",
+      "name": "Git",
+      "icon_name": null,
+      "proficiency_level": 0,
+      "display_order": 5,
+      "is_featured": false
+    }
   ],
-
-  projects: [
+  "projects": [
     {
-      id: 'p1',
-      title: 'Healthcare Data Pipeline Platform',
-      slug: 'healthcare-data-pipeline-platform',
-      short_description:
-        'Enterprise reporting pipelines for Zepbound (Lilly Health) and Diabetes (Tempo) connected-medicine programs.',
-      long_description:
-        'Built and scaled production reporting pipelines processing 10M+ patient records across 150+ tables on AWS using S3, Glue, and Redshift. A config-driven Python framework with GitHub Actions CI/CD automates builds, daily updates, and auditing of warehouse transactional tables.',
-      tech_stack: ['Python', 'AWS S3', 'AWS Glue', 'Amazon Redshift', 'GitHub Actions', 'SQL'],
-      impact_metrics: ['10M+ patient records processed', '150+ warehouse tables', '40% reduction in manual operations'],
-      image_url: null,
-      github_url: 'https://github.com/my-profile',
-      live_url: null,
-      display_order: 1,
-      is_featured: true,
-    },
-    {
-      id: 'p2',
-      title: 'Enterprise RAG Pipeline',
-      slug: 'enterprise-rag-pipeline',
-      short_description:
-        'Production retrieval-augmented generation system with hybrid retrieval and reranking for enterprise knowledge workflows.',
-      long_description:
-        'Engineered a production RAG pipeline using LangChain and Pinecone featuring hybrid retrieval (dense + sparse) and reranking, improving retrieval accuracy by 25% over a baseline BM25 implementation in enterprise-facing workflows.',
-      tech_stack: ['LangChain', 'Pinecone', 'Python', 'OpenAI API', 'FAISS'],
-      impact_metrics: ['25% retrieval accuracy improvement vs BM25', 'Hybrid retrieval + reranking in production'],
-      image_url: null,
-      github_url: 'https://github.com/my-profile',
-      live_url: null,
-      display_order: 2,
-      is_featured: true,
-    },
-    {
-      id: 'p3',
-      title: 'AI Guardrails Framework',
-      slug: 'ai-guardrails-framework',
-      short_description:
-        'Layered safety system for enterprise LLM applications — validation, topic classification, and PII detection.',
-      long_description:
-        'Designed and deployed 10+ AI guardrail layers including input/output validation, topic classification, and PII detection, reducing out-of-policy LLM responses by 95% in enterprise-facing workflows.',
-      tech_stack: ['Python', 'LangChain', 'OpenAI API', 'NLP'],
-      impact_metrics: ['10+ guardrail layers in production', '95% reduction in out-of-policy LLM responses'],
-      image_url: null,
-      github_url: 'https://github.com/my-profile',
-      live_url: null,
-      display_order: 3,
-      is_featured: true,
-    },
-    {
-      id: 'p4',
-      title: 'Cloud ETL Automation & Validation',
-      slug: 'cloud-etl-automation',
-      short_description:
-        'Automated data validation module and orchestrated ETL workflows for manufacturing and distribution analytics.',
-      long_description:
-        'Developed an automated data validation module and orchestrated ETL workflows using AWS Glue and Airflow, improving data freshness, reliability, and reporting confidence across warehouse and supply-chain operations.',
-      tech_stack: ['AWS Glue', 'Airflow', 'Python', 'SQL'],
-      impact_metrics: ['Improved data freshness and reliability', 'Automated validation across ETL workflows'],
-      image_url: null,
-      github_url: 'https://github.com/my-profile',
-      live_url: null,
-      display_order: 4,
-      is_featured: false,
-    },
-    {
-      id: 'p5',
-      title: 'Supply Chain BI Modernization',
-      slug: 'supply-chain-bi-modernization',
-      short_description:
-        'Modernized the reporting estate for El Paso and Denver warehouse and supply-chain operations.',
-      long_description:
-        'Modernized 20+ warehouse and supply-chain reports using Python and SQL, improving reporting efficiency by approximately 20% and giving operations teams faster, more reliable insight.',
-      tech_stack: ['Python', 'SQL', 'Tableau', 'Power BI'],
-      impact_metrics: ['20+ reports modernized', '~20% reporting efficiency gain'],
-      image_url: null,
-      github_url: 'https://github.com/my-profile',
-      live_url: null,
-      display_order: 5,
-      is_featured: false,
-    },
-    {
-      id: 'p6',
-      title: 'Snowflake Analytics Warehouse',
-      slug: 'snowflake-analytics-warehouse',
-      short_description:
-        'Star-schema warehouse modeling powering scalable BI and analytics use cases.',
-      long_description:
-        'Modeled star-schema fact and dimension tables in Snowflake to support scalable BI and analytics, applying SQL, PySpark, and data-warehousing best practices, with rigorous production code review for quality and maintainability.',
-      tech_stack: ['Snowflake', 'SQL', 'PySpark', 'Data Modeling'],
-      impact_metrics: ['Star-schema models powering BI at scale'],
-      image_url: null,
-      github_url: 'https://github.com/my-profile',
-      live_url: null,
-      display_order: 6,
-      is_featured: false,
-    },
-  ],
-
-  experience: [
-    {
-      id: 'e1',
-      company_name: 'Eli Lilly and Company',
-      role_title: 'Associate Consultant — Connected Medicine',
-      location: 'Bengaluru, India',
-      start_date: '2023-11-01',
-      end_date: '2025-08-31',
-      is_current: false,
-      description:
-        'Healthcare data platforms and Generative AI for connected-medicine programs (Zepbound / Lilly Health, Diabetes / Tempo).',
-      achievements: [
-        'Built and scaled reporting pipelines processing 10M+ patient records across 150+ tables on AWS (S3, Glue, Redshift), reducing manual operations by 40%',
-        'Created a reliable CI/CD pipeline with GitHub Actions and a config-driven Python framework, automating builds, daily updates, and auditing of warehouse transactional tables',
-        'Led developers across vendor and cross-functional stakeholders — translating business requirements into technical specs, overseeing development, performing UAT, and communicating delivery outcomes',
-        'Engineered a production RAG pipeline using LangChain and Pinecone with hybrid retrieval and reranking, improving retrieval accuracy by 25% over a BM25 baseline',
-        'Designed and deployed 10+ AI guardrail layers (input/output validation, topic classification, PII detection), reducing out-of-policy LLM responses by 95%',
+      "id": "p1",
+      "title": "GraphCore Studio",
+      "slug": "graphcore-studio",
+      "short_description": "A local-first visual agent workflow platform with drag-and-drop graphs, conditional routing, agent handoffs, and human approval checkpoints.",
+      "long_description": "Built a local-first visual AI workflow studio with drag-and-drop graph editing, conditional routing, agent handoffs, structured-output validation, Python tools, and human approval checkpoints. A native C++17 graph execution engine connects to Python through a C ABI/ctypes bridge, supporting workflow scheduling, state management, and crash-recoverable checkpoints. Integrated OpenRouter models, Pydantic validation, plugin-based Python tools, and a dependency-free browser interface. Published to PyPI with one-command installation: pip install graphcore-studio, using CMake and scikit-build-core for native runtime packaging.",
+      "tech_stack": [
+        "C++17",
+        "Python",
+        "C ABI / ctypes",
+        "OpenRouter",
+        "Pydantic",
+        "CMake",
+        "scikit-build-core"
       ],
-      tech_stack: ['Python', 'AWS', 'Redshift', 'Glue', 'LangChain', 'Pinecone', 'GitHub Actions'],
-      display_order: 1,
-    },
-    {
-      id: 'e2',
-      company_name: 'Dish Network Technologies (EchoStar Corporation)',
-      role_title: 'Engineer I — Manufacturing & Distribution',
-      location: 'Bengaluru, India',
-      start_date: '2022-09-01',
-      end_date: '2023-10-31',
-      is_current: false,
-      description: 'Data engineering for manufacturing, warehouse, and supply-chain analytics.',
-      achievements: [
-        'Developed an automated data validation module and orchestrated ETL workflows using AWS Glue and Airflow, improving data freshness, reliability, and reporting confidence',
-        'Modernized 20+ warehouse and supply-chain reports for El Paso and Denver operations using Python and SQL, improving reporting efficiency by approximately 20%',
+      "impact_metrics": [
+        "Published on PyPI: pip install graphcore-studio",
+        "Crash-recoverable workflow checkpoints"
       ],
-      tech_stack: ['Python', 'SQL', 'AWS Glue', 'Airflow'],
-      display_order: 2,
+      "image_url": null,
+      "github_url": "https://github.com/vivek19398/graphcore-studio",
+      "live_url": "https://pypi.org/project/graphcore-studio/",
+      "display_order": 1,
+      "is_featured": true
     },
     {
-      id: 'e3',
-      company_name: 'Cognizant Technology Solutions',
-      role_title: 'Programmer Analyst — Data Engineering',
-      location: 'Remote',
-      start_date: '2021-08-01',
-      end_date: '2022-09-30',
-      is_current: false,
-      description: 'Data warehousing and analytics engineering on Snowflake.',
-      achievements: [
-        'Modeled star-schema fact and dimension tables to support scalable BI and analytics use cases, applying SQL, PySpark, and data-warehousing best practices in Snowflake',
-        'Reviewed production-ready code for correctness, maintainability, and reliability, surfacing quality issues and improvement opportunities for the engineering team',
+      "id": "p2",
+      "title": "AstraPDF",
+      "slug": "astrapdf",
+      "short_description": "A cross-platform Python PDF toolkit and local web studio for working with documents while keeping files on your own machine.",
+      "long_description": "Developed a Python PDF toolkit and local browser studio for merging, splitting, extracting, rotating, reordering, annotating, watermarking, cropping, and exporting PDF documents. The privacy-first architecture uses a loopback-only web server and in-memory processing; files remain local and are not transmitted to an online service. Integrated native PDFium rendering, lazy thumbnails, page-image caching, and short-lived in-memory sessions for large-document browsing. Published to PyPI with pip install astrapdf, exposing a Python API through the pdfstudio module and a command-line launcher via astrapdf.",
+      "tech_stack": [
+        "Python",
+        "PDFium",
+        "Loopback web server",
+        "In-memory processing",
+        "PyPI"
       ],
-      tech_stack: ['Snowflake', 'SQL', 'PySpark'],
-      display_order: 3,
-    },
+      "impact_metrics": [
+        "Published on PyPI: pip install astrapdf",
+        "Local document processing"
+      ],
+      "image_url": null,
+      "github_url": "https://github.com/vivek19398/AstraPDF",
+      "live_url": "https://pypi.org/project/astrapdf/",
+      "display_order": 2,
+      "is_featured": true
+    }
   ],
-
-  education: [
+  "experience": [
     {
-      id: 'ed1',
-      institution: 'University of Limerick',
-      degree: 'Master of Engineering',
-      field: 'Artificial Intelligence and Computer Vision',
-      location: 'Limerick, Ireland',
-      start_year: 2025,
-      end_year: 2026,
-      description: 'Current GPA: 3.52 / 4.0 (First Class Honours track)',
-      display_order: 1,
+      "id": "e1",
+      "company_name": "Eli Lilly and Company",
+      "role_title": "Associate Consultant",
+      "location": "Bengaluru, India",
+      "start_date": "2023-11-01",
+      "end_date": "2025-08-31",
+      "is_current": false,
+      "description": "Intelligent analytics, agentic backend services, and enterprise data platforms for pharmaceutical programs.",
+      "achievements": [
+        "Engineered BioSmartPlatform using LangChain, Python, and AWS for Tempo (Diabetes), Lilly Health (Zepbound and Mounjaro), and Lilly Together (Immunology). Combined RAG over product PDFs with Text-to-SQL queries against Amazon Redshift and RDS, and natural-language access to enterprise sources. Automated data-quality and refresh monitoring, notifications, and Jira request management, saving the analytics team 8+ hours per week.",
+        "Built high-concurrency RESTful APIs with FastAPI, Python, and LangGraph for the Consensus system (RedStrike), integrating an LLM agentic framework and AI guardrails for input/output validation, topic classification, and PII detection to address HIPAA/GDPR requirements.",
+        "Built and scaled Zepbound (Lilly Health) and Diabetes (Tempo) reporting pipelines processing 10M+ patient records across 150+ tables on AWS S3, Glue, and Redshift, reducing manual operations by 40%.",
+        "Integrated SCD Type 1 and Type 2 to enhance data accuracy and introduced monitoring for AWS applications, achieving 99% uptime within 6 months.",
+        "Consolidated multiple SQL Data Warehouse tables into a unified flat table and streamlined reconciliation across sources, boosting accuracy and efficiency by 90%."
+      ],
+      "tech_stack": [
+        "Python",
+        "FastAPI",
+        "LangChain",
+        "LangGraph",
+        "AWS",
+        "Amazon Redshift",
+        "Amazon RDS",
+        "AWS Glue",
+        "SQL"
+      ],
+      "display_order": 1
     },
     {
-      id: 'ed2',
-      institution: 'Panjab University',
-      degree: 'Bachelor of Engineering',
-      field: 'Computer Science and Engineering',
-      location: 'Chandigarh, India',
-      start_year: 2017,
-      end_year: 2021,
-      description: 'Graduated with First Class Honours (1:1)',
-      display_order: 2,
+      "id": "e2",
+      "company_name": "Dish Network Technologies (EchoStar Corporation)",
+      "role_title": "Software Engineer",
+      "location": "Bengaluru, India",
+      "start_date": "2022-09-01",
+      "end_date": "2023-10-31",
+      "is_current": false,
+      "description": "Automated ETL, warehouse and supply-chain reporting, and cloud data integration.",
+      "achievements": [
+        "Built automated ETL workflows using PySpark and AWS Glue, eliminating manual overhead and recovering 40+ engineering hours per month.",
+        "Modernized 20+ warehouse and supply-chain reports for El Paso and Denver operations using Python and SQL, improving reporting efficiency by approximately 20%.",
+        "Built end-to-end ETL solutions using Azure Data Factory V2, automating extraction, pipeline orchestration, and monitoring through Power BI.",
+        "Integrated ServiceNow with data pipelines for failure alerts, reducing support resolution time by 30%."
+      ],
+      "tech_stack": [
+        "Python",
+        "SQL",
+        "PySpark",
+        "AWS Glue",
+        "Azure Data Factory V2",
+        "Power BI",
+        "ServiceNow"
+      ],
+      "display_order": 2
     },
+    {
+      "id": "e3",
+      "company_name": "Cognizant Technology Solutions",
+      "role_title": "Programmer Analyst",
+      "location": "Remote",
+      "start_date": "2021-01-01",
+      "end_date": "2022-09-30",
+      "is_current": false,
+      "description": "Automated warehouse workflows and commercial insurance analytics on Snowflake.",
+      "achievements": [
+        "Created a reliable CI/CD pipeline using GitHub Actions and a flexible, config-driven Python framework to automate builds, daily updates, and auditing of warehouse transactional tables.",
+        "Modelled star-schema fact and dimension tables for a Commercial Insurance dataset, supporting scalable BI and analytics through SQL, PySpark, and data-warehousing practices in Snowflake."
+      ],
+      "tech_stack": [
+        "Python",
+        "GitHub Actions",
+        "SQL",
+        "PySpark",
+        "Snowflake"
+      ],
+      "display_order": 3
+    }
   ],
-
-  achievements: [
+  "education": [
     {
-      id: 'a1',
-      title: 'Lilly Rise Award — Q1 2024',
-      description: 'Recognized for teamwork and innovation in data infrastructure.',
-      issuer: 'Eli Lilly and Company',
-      achievement_date: '2024-03-01',
-      display_order: 1,
+      "id": "ed1",
+      "institution": "University of Limerick",
+      "degree": "Master of Engineering",
+      "field": "Artificial Intelligence",
+      "location": "Limerick, Ireland",
+      "start_year": 2025,
+      "end_year": 2026,
+      "description": "September 2025 – August 2026. GPA: 3.55/4 (First Class Honours).",
+      "display_order": 1
     },
     {
-      id: 'a2',
-      title: 'Lilly Rise Award — Q4 2024',
-      description: 'Recognized for exceptional productivity and delivery.',
-      issuer: 'Eli Lilly and Company',
-      achievement_date: '2024-12-01',
-      display_order: 2,
-    },
+      "id": "ed2",
+      "institution": "Panjab University, India",
+      "degree": "Bachelor of Engineering",
+      "field": "Computer Science and Engineering",
+      "location": "India",
+      "start_year": 2017,
+      "end_year": 2021,
+      "description": "July 2017 – May 2021. GPA: 70%.",
+      "display_order": 2
+    }
   ],
-
-  certifications: [],
+  "achievements": [
+    {
+      "id": "a1",
+      "title": "Eli Lilly Rise Award — Q1 2024",
+      "description": "Teamwork and innovation in data infrastructure.",
+      "issuer": "Eli Lilly and Company",
+      "achievement_date": null,
+      "display_order": 1
+    },
+    {
+      "id": "a2",
+      "title": "Eli Lilly Rise Award — Q4 2024",
+      "description": "Exceptional productivity and delivery.",
+      "issuer": "Eli Lilly and Company",
+      "achievement_date": null,
+      "display_order": 2
+    }
+  ],
+  "certifications": [
+    {
+      "id": "c1",
+      "title": "Microsoft Certified: Azure Fundamentals (AZ-900)",
+      "issuer": "Microsoft · 2022",
+      "issue_date": null,
+      "credential_url": null,
+      "display_order": 1
+    },
+    {
+      "id": "c2",
+      "title": "IBM RAG and Agentic AI",
+      "issuer": "Coursera · 2026",
+      "issue_date": null,
+      "credential_url": null,
+      "display_order": 2
+    }
+  ]
 }
 
 export const SKILL_CATEGORIES = [
-  'Data Engineering',
-  'Cloud & DevOps',
-  'AI / ML',
-  'BI & Analytics',
-  'Programming',
-  'Databases',
-  'Tools',
+  "Languages & Backend",
+  "Generative AI & Machine Learning",
+  "Cloud Platforms",
+  "Data Engineering & Analytics",
+  "DevOps & Collaboration"
 ] as const
+
+export const resumeContact = {
+  "phone": "+353 89 970 8587",
+  "phone_url": "tel:+353899708587",
+  "leetcode_url": "https://leetcode.com/u/viveksinha00/",
+  "pypi_url": "https://pypi.org/user/atlas.drifter/",
+  "work_authorization": "Eligible to work in Ireland without employer sponsorship (Stamp 1G)."
+}

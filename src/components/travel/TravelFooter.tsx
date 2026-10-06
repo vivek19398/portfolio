@@ -18,7 +18,7 @@ export default function TravelFooter() {
           <a href="https://linkedin.com/in/ranjanvivek19" target="_blank" rel="noopener noreferrer" className="text-ash hover:text-gold-light transition-colors">
             LinkedIn
           </a>
-          <a href="mailto:info@atlasdrifter.com" className="text-ash hover:text-gold-light transition-colors">Email</a>
+          <a href="mailto:vivek000@outlook.com" className="text-ash hover:text-gold-light transition-colors">Email</a>
         </nav>
 
         <button

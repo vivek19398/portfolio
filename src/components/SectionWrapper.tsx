@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion'
 import type { ReactNode } from 'react'
-import SlashTransition from './effects/SlashTransition'
-import EnergyBurst from './effects/EnergyBurst'
 
 interface SectionWrapperProps {
   id: string
@@ -19,7 +17,6 @@ interface SectionWrapperProps {
 export default function SectionWrapper({ id, title, kicker, children, className = '' }: SectionWrapperProps) {
   return (
     <section id={id} className={`relative py-20 sm:py-28 ${className}`}>
-      <SlashTransition />
       <div className="max-w-6xl mx-auto px-5 sm:px-8 relative">
         {title && (
           <motion.header
@@ -29,7 +26,6 @@ export default function SectionWrapper({ id, title, kicker, children, className 
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="mb-12 sm:mb-16 relative"
           >
-            <EnergyBurst className="w-28 h-28 -left-8 -top-6" />
             {kicker && (
               <p className="font-mono text-[11px] sm:text-xs tracking-[0.45em] uppercase text-gold mb-3 flex items-center gap-3">
                 <svg width="10" height="10" viewBox="0 0 14 14" fill="none" aria-hidden="true" className="shrink-0">

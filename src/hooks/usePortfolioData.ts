@@ -3,7 +3,7 @@ import { supabase } from '../lib/supabase'
 import { fallbackData } from '../data/portfolioData'
 import type { PortfolioData } from '../types/database'
 
-const CACHE_KEY = 'portfolio-data-v1'
+const CACHE_KEY = 'portfolio-data-resume-2026-10-06'
 const CACHE_TTL_MS = 10 * 60 * 1000 // 10 minutes — keeps Supabase free-tier traffic low
 
 interface CacheEnvelope {

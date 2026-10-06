@@ -76,7 +76,7 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 rounded-xl px-4 py-1.5 text-xs font-mono uppercase tracking-wider text-gold-light border border-gold/50 bg-ember/5 hover:bg-ember/15 transition-colors"
               >
-                ↗ Live
+                ↗ PyPI
               </a>
             )}
           </footer>
@@ -145,12 +145,12 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
               <div className="flex flex-wrap gap-3">
                 {project.live_url && (
                   <a href={project.live_url} target="_blank" rel="noopener noreferrer" className="btn-royal !px-5 !py-2 text-sm">
-                    ↗ View Live
+                    ↗ View on PyPI
                   </a>
                 )}
                 {project.github_url && (
                   <a href={project.github_url} target="_blank" rel="noopener noreferrer" className="btn-ghost !px-5 !py-2 text-sm">
-                    Code Reference
+                    View on GitHub
                   </a>
                 )}
               </div>

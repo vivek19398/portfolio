@@ -1,174 +1,80 @@
--- 004_seed_initial_data.sql
--- Seed data generated from Vivek Ranjan's resume (source of truth).
--- Replace placeholder domain/email/social URLs after connecting your domain.
+-- Resume-derived seed for a fresh database. Do not rerun on an existing populated database.
 
--- ── Profile ──────────────────────────────────────────────────────────────
-insert into public.profile
-  (full_name, headline, short_tagline, location, email, linkedin_url, github_url, resume_url, about_text)
-values (
-  'Vivek Ranjan',
-  'AI & Data Engineer',
-  'Engineering scalable data platforms and production-grade GenAI systems — 4+ years across healthcare, pharma, and supply chain.',
-  'Cork, Ireland',
-  'hello@mydomain.com',
-  'https://linkedin.com/in/my-profile',
-  'https://github.com/my-profile',
-  '/Vivek_Ranjan_Resume.pdf',
-  'I am a software developer with 4+ years of experience in Python, Generative AI, and Data Engineering, with deep domain expertise in pharmaceuticals and supply chain. At Eli Lilly, I built and scaled healthcare reporting pipelines processing 10M+ patient records across 150+ tables on AWS (S3, Glue, Redshift), cutting manual operations by 40%, and engineered a production RAG pipeline with LangChain and Pinecone that improved retrieval accuracy by 25%. I work across the full data and AI stack — Python, SQL, PySpark, Airflow, Snowflake, Redshift — and bring insights to life with Tableau and Power BI. Currently pursuing a Master of Engineering in Artificial Intelligence and Computer Vision at the University of Limerick, I am authorized to work in Ireland and open to AI Engineer and Data Engineer opportunities.'
-);
+begin;
 
--- ── Skills ───────────────────────────────────────────────────────────────
+insert into public.profile (full_name, headline, short_tagline, location, email, linkedin_url, github_url, resume_url, about_text) values
+  ('Vivek Ranjan', 'Senior Software Engineer', 'Turning ideas into production-grade applications — approximately 5 years building GenAI systems, agentic workflows, and cloud-native platforms.', 'Dublin, Ireland', 'vivek000@outlook.com', 'https://www.linkedin.com/in/ranjanvivek19', 'https://github.com/vivek19398/', '/Vivek_Ranjan_Resume.pdf', 'Senior Software Engineer with approximately 5 years of experience designing and building production-grade GenAI, Agentic AI, RAG, and cloud-native applications using Python, FastAPI, LangChain, LangGraph, and cloud services. Experienced in scalable LLM-powered APIs, AI guardrails, evaluation frameworks, multimodal AI, and enterprise data platforms. Built and scaled AWS data pipelines processing 10M+ patient records across therapeutic areas, delivering AI-enabled solutions in enterprise pharmaceutical environments. Eligible to work in Ireland without employer sponsorship (Stamp 1G).');
+
 insert into public.skills (category, name, icon_name, proficiency_level, display_order, is_featured) values
-  ('Data Engineering', 'PySpark', 'spark', 90, 1, true),
-  ('Data Engineering', 'Airflow', 'airflow', 85, 2, true),
-  ('Data Engineering', 'Kafka', 'kafka', 75, 3, false),
-  ('Data Engineering', 'ETL / ELT Pipelines', 'pipeline', 92, 4, true),
-  ('Data Engineering', 'Data Warehousing', 'warehouse', 88, 5, false),
-  ('Cloud & DevOps', 'AWS (S3, Lambda, Glue, Redshift, Athena)', 'aws', 90, 1, true),
-  ('Cloud & DevOps', 'Docker', 'docker', 80, 2, false),
-  ('Cloud & DevOps', 'Kubernetes', 'kubernetes', 70, 3, false),
-  ('Cloud & DevOps', 'GitHub Actions (CI/CD)', 'github', 88, 4, true),
-  ('AI / ML', 'LangChain & LangGraph', 'chain', 90, 1, true),
-  ('AI / ML', 'RAG Systems', 'rag', 92, 2, true),
-  ('AI / ML', 'OpenAI API', 'openai', 88, 3, false),
-  ('AI / ML', 'Pinecone & FAISS', 'vector', 85, 4, false),
-  ('AI / ML', 'PyTorch', 'pytorch', 75, 5, false),
-  ('AI / ML', 'MCP (Model Context Protocol)', 'mcp', 78, 6, false),
-  ('BI & Analytics', 'Tableau', 'tableau', 82, 1, false),
-  ('BI & Analytics', 'Power BI', 'powerbi', 82, 2, false),
-  ('BI & Analytics', 'Pandas & NumPy', 'pandas', 90, 3, true),
-  ('BI & Analytics', 'Streamlit', 'streamlit', 85, 4, false),
-  ('Programming', 'Python', 'python', 95, 1, true),
-  ('Programming', 'SQL', 'sql', 93, 2, true),
-  ('Programming', 'JavaScript', 'javascript', 72, 3, false),
-  ('Programming', 'FastAPI', 'fastapi', 82, 4, false),
-  ('Databases', 'Amazon Redshift', 'redshift', 90, 1, true),
-  ('Databases', 'Snowflake', 'snowflake', 85, 2, true),
-  ('Databases', 'PostgreSQL', 'postgres', 80, 3, false),
-  ('Tools', 'Git & GitHub', 'git', 92, 1, false),
-  ('Tools', 'JIRA', 'jira', 85, 2, false),
-  ('Tools', 'Postman', 'postman', 85, 3, false);
+  ('Languages & Backend', 'C++', null, 0, 1, false),
+  ('Languages & Backend', 'Python', null, 0, 2, false),
+  ('Languages & Backend', 'FastAPI', null, 0, 3, false),
+  ('Languages & Backend', 'REST APIs', null, 0, 4, false),
+  ('Languages & Backend', 'SQL', null, 0, 5, false),
+  ('Generative AI & Machine Learning', 'RAG', null, 0, 1, false),
+  ('Generative AI & Machine Learning', 'Agentic AI Workflows', null, 0, 2, false),
+  ('Generative AI & Machine Learning', 'LangChain', null, 0, 3, false),
+  ('Generative AI & Machine Learning', 'LangGraph', null, 0, 4, false),
+  ('Generative AI & Machine Learning', 'LangSmith', null, 0, 5, false),
+  ('Generative AI & Machine Learning', 'MCP', null, 0, 6, false),
+  ('Generative AI & Machine Learning', 'OpenAI API', null, 0, 7, false),
+  ('Generative AI & Machine Learning', 'Amazon Bedrock', null, 0, 8, false),
+  ('Generative AI & Machine Learning', 'Microsoft Foundry', null, 0, 9, false),
+  ('Generative AI & Machine Learning', 'Prompt Engineering', null, 0, 10, false),
+  ('Generative AI & Machine Learning', 'Multimodal AI', null, 0, 11, false),
+  ('Generative AI & Machine Learning', 'NLP', null, 0, 12, false),
+  ('Generative AI & Machine Learning', 'Vector DB', null, 0, 13, false),
+  ('Generative AI & Machine Learning', 'Pydantic', null, 0, 14, false),
+  ('Generative AI & Machine Learning', 'PyTorch', null, 0, 15, false),
+  ('Cloud Platforms', 'AWS Lambda', null, 0, 1, false),
+  ('Cloud Platforms', 'AWS Glue', null, 0, 2, false),
+  ('Cloud Platforms', 'AWS ECS', null, 0, 3, false),
+  ('Cloud Platforms', 'Amazon S3', null, 0, 4, false),
+  ('Cloud Platforms', 'AWS IAM', null, 0, 5, false),
+  ('Cloud Platforms', 'Amazon VPC', null, 0, 6, false),
+  ('Cloud Platforms', 'Amazon Athena', null, 0, 7, false),
+  ('Cloud Platforms', 'Amazon Redshift', null, 0, 8, false),
+  ('Cloud Platforms', 'Amazon RDS', null, 0, 9, false),
+  ('Cloud Platforms', 'Amazon API Gateway', null, 0, 10, false),
+  ('Cloud Platforms', 'Amazon SageMaker', null, 0, 11, false),
+  ('Cloud Platforms', 'AWS CloudFormation', null, 0, 12, false),
+  ('Cloud Platforms', 'Azure Data Factory', null, 0, 13, false),
+  ('Cloud Platforms', 'Azure Databricks', null, 0, 14, false),
+  ('Data Engineering & Analytics', 'PySpark', null, 0, 1, false),
+  ('Data Engineering & Analytics', 'ETL Pipeline Automation', null, 0, 2, false),
+  ('Data Engineering & Analytics', 'Snowflake', null, 0, 3, false),
+  ('Data Engineering & Analytics', 'Microsoft Fabric', null, 0, 4, false),
+  ('Data Engineering & Analytics', 'Microsoft SQL Server', null, 0, 5, false),
+  ('Data Engineering & Analytics', 'Apache Airflow', null, 0, 6, false),
+  ('Data Engineering & Analytics', 'Apache Kafka', null, 0, 7, false),
+  ('Data Engineering & Analytics', 'Delta Lake', null, 0, 8, false),
+  ('Data Engineering & Analytics', 'Power BI', null, 0, 9, false),
+  ('Data Engineering & Analytics', 'LAAD', null, 0, 10, false),
+  ('DevOps & Collaboration', 'Docker', null, 0, 1, false),
+  ('DevOps & Collaboration', 'GitHub Actions', null, 0, 2, false),
+  ('DevOps & Collaboration', 'Jenkins', null, 0, 3, false),
+  ('DevOps & Collaboration', 'CI/CD', null, 0, 4, false),
+  ('DevOps & Collaboration', 'Git', null, 0, 5, false);
 
--- ── Projects (derived from real resume work) ─────────────────────────────
-insert into public.projects
-  (title, slug, short_description, long_description, tech_stack, impact_metrics, github_url, display_order, is_featured)
-values
-  (
-    'Healthcare Data Pipeline Platform',
-    'healthcare-data-pipeline-platform',
-    'Enterprise reporting pipelines for Zepbound (Lilly Health) and Diabetes (Tempo) connected-medicine programs.',
-    'Built and scaled production reporting pipelines processing 10M+ patient records across 150+ tables on AWS using S3, Glue, and Redshift. A config-driven Python framework with GitHub Actions CI/CD automates builds, daily updates, and auditing of warehouse transactional tables.',
-    array['Python','AWS S3','AWS Glue','Amazon Redshift','GitHub Actions','SQL'],
-    array['10M+ patient records processed','150+ warehouse tables','40% reduction in manual operations'],
-    'https://github.com/my-profile', 1, true
-  ),
-  (
-    'Enterprise RAG Pipeline',
-    'enterprise-rag-pipeline',
-    'Production retrieval-augmented generation system with hybrid retrieval and reranking for enterprise knowledge workflows.',
-    'Engineered a production RAG pipeline using LangChain and Pinecone featuring hybrid retrieval (dense + sparse) and reranking, improving retrieval accuracy by 25% over a baseline BM25 implementation in enterprise-facing workflows.',
-    array['LangChain','Pinecone','Python','OpenAI API','FAISS'],
-    array['25% retrieval accuracy improvement vs BM25','Hybrid retrieval + reranking in production'],
-    'https://github.com/my-profile', 2, true
-  ),
-  (
-    'AI Guardrails Framework',
-    'ai-guardrails-framework',
-    'Layered safety system for enterprise LLM applications — validation, topic classification, and PII detection.',
-    'Designed and deployed 10+ AI guardrail layers including input/output validation, topic classification, and PII detection, reducing out-of-policy LLM responses by 95% in enterprise-facing workflows.',
-    array['Python','LangChain','OpenAI API','NLP'],
-    array['10+ guardrail layers in production','95% reduction in out-of-policy LLM responses'],
-    'https://github.com/my-profile', 3, true
-  ),
-  (
-    'Cloud ETL Automation & Validation',
-    'cloud-etl-automation',
-    'Automated data validation module and orchestrated ETL workflows for manufacturing and distribution analytics.',
-    'Developed an automated data validation module and orchestrated ETL workflows using AWS Glue and Airflow, improving data freshness, reliability, and reporting confidence across warehouse and supply-chain operations.',
-    array['AWS Glue','Airflow','Python','SQL'],
-    array['Improved data freshness and reliability','Automated validation across ETL workflows'],
-    'https://github.com/my-profile', 4, false
-  ),
-  (
-    'Supply Chain BI Modernization',
-    'supply-chain-bi-modernization',
-    'Modernized the reporting estate for El Paso and Denver warehouse and supply-chain operations.',
-    'Modernized 20+ warehouse and supply-chain reports using Python and SQL, improving reporting efficiency by approximately 20% and giving operations teams faster, more reliable insight.',
-    array['Python','SQL','Tableau','Power BI'],
-    array['20+ reports modernized','~20% reporting efficiency gain'],
-    'https://github.com/my-profile', 5, false
-  ),
-  (
-    'Snowflake Analytics Warehouse',
-    'snowflake-analytics-warehouse',
-    'Star-schema warehouse modeling powering scalable BI and analytics use cases.',
-    'Modeled star-schema fact and dimension tables in Snowflake to support scalable BI and analytics, applying SQL, PySpark, and data-warehousing best practices, with rigorous production code review for quality and maintainability.',
-    array['Snowflake','SQL','PySpark','Data Modeling'],
-    array['Star-schema models powering BI at scale'],
-    'https://github.com/my-profile', 6, false
-  );
+insert into public.projects (title, slug, short_description, long_description, tech_stack, impact_metrics, image_url, github_url, live_url, display_order, is_featured) values
+  ('GraphCore Studio', 'graphcore-studio', 'A local-first visual agent workflow platform with drag-and-drop graphs, conditional routing, agent handoffs, and human approval checkpoints.', 'Built a local-first visual AI workflow studio with drag-and-drop graph editing, conditional routing, agent handoffs, structured-output validation, Python tools, and human approval checkpoints. A native C++17 graph execution engine connects to Python through a C ABI/ctypes bridge, supporting workflow scheduling, state management, and crash-recoverable checkpoints. Integrated OpenRouter models, Pydantic validation, plugin-based Python tools, and a dependency-free browser interface. Published to PyPI with one-command installation: pip install graphcore-studio, using CMake and scikit-build-core for native runtime packaging.', array['C++17','Python','C ABI / ctypes','OpenRouter','Pydantic','CMake','scikit-build-core']::text[], array['Published on PyPI: pip install graphcore-studio','Crash-recoverable workflow checkpoints']::text[], null, 'https://github.com/vivek19398/graphcore-studio', 'https://pypi.org/project/graphcore-studio/', 1, true),
+  ('AstraPDF', 'astrapdf', 'A cross-platform Python PDF toolkit and local web studio for working with documents while keeping files on your own machine.', 'Developed a Python PDF toolkit and local browser studio for merging, splitting, extracting, rotating, reordering, annotating, watermarking, cropping, and exporting PDF documents. The privacy-first architecture uses a loopback-only web server and in-memory processing; files remain local and are not transmitted to an online service. Integrated native PDFium rendering, lazy thumbnails, page-image caching, and short-lived in-memory sessions for large-document browsing. Published to PyPI with pip install astrapdf, exposing a Python API through the pdfstudio module and a command-line launcher via astrapdf.', array['Python','PDFium','Loopback web server','In-memory processing','PyPI']::text[], array['Published on PyPI: pip install astrapdf','Local document processing']::text[], null, 'https://github.com/vivek19398/AstraPDF', 'https://pypi.org/project/astrapdf/', 2, true);
 
--- ── Experience ───────────────────────────────────────────────────────────
-insert into public.experience
-  (company_name, role_title, location, start_date, end_date, is_current, description, achievements, tech_stack, display_order)
-values
-  (
-    'Eli Lilly and Company',
-    'Associate Consultant — Connected Medicine',
-    'Bengaluru, India',
-    '2023-11-01', '2025-08-31', false,
-    'Healthcare data platforms and Generative AI for connected-medicine programs (Zepbound / Lilly Health, Diabetes / Tempo).',
-    array[
-      'Built and scaled reporting pipelines processing 10M+ patient records across 150+ tables on AWS (S3, Glue, Redshift), reducing manual operations by 40%',
-      'Created a reliable CI/CD pipeline with GitHub Actions and a config-driven Python framework, automating builds, daily updates, and auditing of warehouse transactional tables',
-      'Led developers across vendor and cross-functional stakeholders — translating business requirements into technical specs, overseeing development, performing UAT, and communicating delivery outcomes',
-      'Engineered a production RAG pipeline using LangChain and Pinecone with hybrid retrieval and reranking, improving retrieval accuracy by 25% over a BM25 baseline',
-      'Designed and deployed 10+ AI guardrail layers (input/output validation, topic classification, PII detection), reducing out-of-policy LLM responses by 95%'
-    ],
-    array['Python','AWS','Redshift','Glue','LangChain','Pinecone','GitHub Actions'],
-    1
-  ),
-  (
-    'Dish Network Technologies (EchoStar Corporation)',
-    'Engineer I — Manufacturing & Distribution',
-    'Bengaluru, India',
-    '2022-09-01', '2023-10-31', false,
-    'Data engineering for manufacturing, warehouse, and supply-chain analytics.',
-    array[
-      'Developed an automated data validation module and orchestrated ETL workflows using AWS Glue and Airflow, improving data freshness, reliability, and reporting confidence',
-      'Modernized 20+ warehouse and supply-chain reports for El Paso and Denver operations using Python and SQL, improving reporting efficiency by approximately 20%'
-    ],
-    array['Python','SQL','AWS Glue','Airflow'],
-    2
-  ),
-  (
-    'Cognizant Technology Solutions',
-    'Programmer Analyst — Data Engineering',
-    'Remote',
-    '2021-08-01', '2022-09-30', false,
-    'Data warehousing and analytics engineering on Snowflake.',
-    array[
-      'Modeled star-schema fact and dimension tables to support scalable BI and analytics use cases, applying SQL, PySpark, and data-warehousing best practices in Snowflake',
-      'Reviewed production-ready code for correctness, maintainability, and reliability, surfacing quality issues and improvement opportunities for the engineering team'
-    ],
-    array['Snowflake','SQL','PySpark'],
-    3
-  );
+insert into public.experience (company_name, role_title, location, start_date, end_date, is_current, description, achievements, tech_stack, display_order) values
+  ('Eli Lilly and Company', 'Associate Consultant', 'Bengaluru, India', '2023-11-01', '2025-08-31', false, 'Intelligent analytics, agentic backend services, and enterprise data platforms for pharmaceutical programs.', array['Engineered BioSmartPlatform using LangChain, Python, and AWS for Tempo (Diabetes), Lilly Health (Zepbound and Mounjaro), and Lilly Together (Immunology). Combined RAG over product PDFs with Text-to-SQL queries against Amazon Redshift and RDS, and natural-language access to enterprise sources. Automated data-quality and refresh monitoring, notifications, and Jira request management, saving the analytics team 8+ hours per week.','Built high-concurrency RESTful APIs with FastAPI, Python, and LangGraph for the Consensus system (RedStrike), integrating an LLM agentic framework and AI guardrails for input/output validation, topic classification, and PII detection to address HIPAA/GDPR requirements.','Built and scaled Zepbound (Lilly Health) and Diabetes (Tempo) reporting pipelines processing 10M+ patient records across 150+ tables on AWS S3, Glue, and Redshift, reducing manual operations by 40%.','Integrated SCD Type 1 and Type 2 to enhance data accuracy and introduced monitoring for AWS applications, achieving 99% uptime within 6 months.','Consolidated multiple SQL Data Warehouse tables into a unified flat table and streamlined reconciliation across sources, boosting accuracy and efficiency by 90%.']::text[], array['Python','FastAPI','LangChain','LangGraph','AWS','Amazon Redshift','Amazon RDS','AWS Glue','SQL']::text[], 1),
+  ('Dish Network Technologies (EchoStar Corporation)', 'Software Engineer', 'Bengaluru, India', '2022-09-01', '2023-10-31', false, 'Automated ETL, warehouse and supply-chain reporting, and cloud data integration.', array['Built automated ETL workflows using PySpark and AWS Glue, eliminating manual overhead and recovering 40+ engineering hours per month.','Modernized 20+ warehouse and supply-chain reports for El Paso and Denver operations using Python and SQL, improving reporting efficiency by approximately 20%.','Built end-to-end ETL solutions using Azure Data Factory V2, automating extraction, pipeline orchestration, and monitoring through Power BI.','Integrated ServiceNow with data pipelines for failure alerts, reducing support resolution time by 30%.']::text[], array['Python','SQL','PySpark','AWS Glue','Azure Data Factory V2','Power BI','ServiceNow']::text[], 2),
+  ('Cognizant Technology Solutions', 'Programmer Analyst', 'Remote', '2021-01-01', '2022-09-30', false, 'Automated warehouse workflows and commercial insurance analytics on Snowflake.', array['Created a reliable CI/CD pipeline using GitHub Actions and a flexible, config-driven Python framework to automate builds, daily updates, and auditing of warehouse transactional tables.','Modelled star-schema fact and dimension tables for a Commercial Insurance dataset, supporting scalable BI and analytics through SQL, PySpark, and data-warehousing practices in Snowflake.']::text[], array['Python','GitHub Actions','SQL','PySpark','Snowflake']::text[], 3);
 
--- ── Education ────────────────────────────────────────────────────────────
-insert into public.education
-  (institution, degree, field, location, start_year, end_year, description, display_order)
-values
-  ('University of Limerick', 'Master of Engineering', 'Artificial Intelligence and Computer Vision',
-   'Limerick, Ireland', 2025, 2026, 'Current GPA: 3.52 / 4.0 (First Class Honours track)', 1),
-  ('Panjab University', 'Bachelor of Engineering', 'Computer Science and Engineering',
-   'Chandigarh, India', 2017, 2021, 'Graduated with First Class Honours (1:1)', 2);
+insert into public.education (institution, degree, field, location, start_year, end_year, description, display_order) values
+  ('University of Limerick', 'Master of Engineering', 'Artificial Intelligence', 'Limerick, Ireland', 2025, 2026, 'September 2025 – August 2026. GPA: 3.55/4 (First Class Honours).', 1),
+  ('Panjab University, India', 'Bachelor of Engineering', 'Computer Science and Engineering', 'India', 2017, 2021, 'July 2017 – May 2021. GPA: 70%.', 2);
 
--- ── Achievements ─────────────────────────────────────────────────────────
 insert into public.achievements (title, description, issuer, achievement_date, display_order) values
-  ('Lilly Rise Award — Q1 2024', 'Recognized for teamwork and innovation in data infrastructure.',
-   'Eli Lilly and Company', '2024-03-01', 1),
-  ('Lilly Rise Award — Q4 2024', 'Recognized for exceptional productivity and delivery.',
-   'Eli Lilly and Company', '2024-12-01', 2);
+  ('Eli Lilly Rise Award — Q1 2024', 'Teamwork and innovation in data infrastructure.', 'Eli Lilly and Company', null, 1),
+  ('Eli Lilly Rise Award — Q4 2024', 'Exceptional productivity and delivery.', 'Eli Lilly and Company', null, 2);
 
--- Certifications: none listed on the resume — add via /admin when earned.
+insert into public.certifications (title, issuer, issue_date, credential_url, display_order) values
+  ('Microsoft Certified: Azure Fundamentals (AZ-900)', 'Microsoft · 2022', null, null, 1),
+  ('IBM RAG and Agentic AI', 'Coursera · 2026', null, null, 2);
+
+commit;
