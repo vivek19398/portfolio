@@ -13,7 +13,7 @@ export default function WhatIBuilt() {
   useEffect(() => {
     // This section is lazy-loaded, so its anchor may not exist on initial navigation.
     const anchor = window.location.hash.slice(1)
-    if (!['what-i-built', 'twenty-nine'].includes(anchor)) return
+    if (!['what-i-built', 'twenty-nine', 'sequence'].includes(anchor)) return
     const frame = window.requestAnimationFrame(() => {
       document.getElementById(anchor)?.scrollIntoView({ block: 'start', behavior: 'instant' })
     })
@@ -71,6 +71,23 @@ export default function WhatIBuilt() {
           <div><h4>Made for a shared table</h4><p>Private room codes, animated card play with player labels, and local practice against three computer players.</p></div>
         </div>
         <div className="dealz-engineering"><span className="dealz-eyebrow">BEHIND THE TABLE</span><p>Browser → Vercel API → rules engine → Supabase PostgreSQL. Validated actions update persistent state; version checks prevent conflicting moves from overwriting each other.</p><p>The project includes 28 automated tests covering bidding, card privacy, scoring, Joker, seventh patti, and multiplayer state handling.</p><ul aria-label="Twenty-Nine technology stack">{['HTML', 'CSS', 'JavaScript', 'Node.js', 'Vercel', 'Supabase PostgreSQL'].map(tech => <li key={tech}>{tech}</li>)}</ul></div>
+      </article>
+      <article id="sequence" className="dealz-showcase sequence-showcase" aria-labelledby="sequence-title">
+        <div className="dealz-overview">
+          <p className="dealz-eyebrow">COMPUTER PLAY · A SHARED SCREEN</p>
+          <h3 id="sequence-title">Sequence<span>.</span></h3>
+          <p className="dealz-tagline">Your next move.<br />A new family-table game.</p>
+          <p className="dealz-description">A browser-based Sequence game with Twenty-Nine-style card artwork. Play against the computer, or share one device for a two-player match.</p>
+          <div className="dealz-actions"><a href="https://sequence-family-table.ochre-wood-2173.chatgpt.site/" target="_blank" rel="noopener noreferrer" className="dealz-play">Play Sequence <span aria-hidden="true">↗</span></a></div>
+          <p className="dealz-mode">Hosted demo on OpenAI Sites · Online multiplayer deployment pending</p>
+        </div>
+        <div className="dealz-table sequence-table" aria-hidden="true"><span className="dealz-table-label">A LITTLE STRATEGY. A SHARED TABLE.</span><div className="sequence-board">{Array.from({ length: 25 }, (_, index) => <span key={index} className={[2, 7, 12, 17, 22].includes(index) ? 'sequence-chip' : ''}>{index % 3 === 0 ? '♠' : index % 3 === 1 ? '♥' : '♦'}</span>)}</div><span className="dealz-table-caption">Card-and-chip artwork inspired by the game.</span></div>
+        <div className="dealz-features">
+          <div><h4>Take on the computer</h4><p>Start a game without gathering a group. Computer play is available in the hosted version.</p></div>
+          <div><h4>Share the screen</h4><p>Same-device two-player mode brings the family-table experience to one browser.</p></div>
+          <div><h4>Built for the next step</h4><p>Online multiplayer is implemented with private hands, invite codes, reconnects, and server-validated moves. Its deployment is still pending.</p></div>
+        </div>
+        <div className="dealz-engineering"><span className="dealz-eyebrow">IN DEVELOPMENT</span><p>Eight automated tests passed during development. The next milestone is completing the online deployment on Vercel and Supabase.</p><ul aria-label="Sequence capabilities"><li>Computer opponents</li><li>Same-device multiplayer</li><li>Private hands</li><li>Validated moves</li></ul></div>
       </article>
     </SectionWrapper>
   )

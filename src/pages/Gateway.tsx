@@ -31,6 +31,10 @@ export default function Gateway() {
         <div className="atlas-home-dealz-art" aria-hidden="true"><span className="atlas-mini-card atlas-mini-card-back">29</span><span className="atlas-mini-card atlas-mini-card-front">♠</span></div>
         <div className="atlas-home-dealz-copy"><span className="atlas-eyebrow">WHAT I BUILT · PLAY ONLINE</span><h2 id="home-twenty-nine-title">Twenty-Nine<span>.</span></h2><p>Four players. Two teams. Every trick counts.</p><span className="atlas-home-dealz-meta">4 players · 2 teams · Family password required</span><div className="atlas-home-dealz-links"><a href="https://29game.vercel.app/" target="_blank" rel="noopener noreferrer">Play Twenty-Nine ↗</a><Link to="/work#twenty-nine">Behind the game →</Link></div></div>
       </article>
+      <article className="atlas-home-dealz atlas-home-sequence" aria-labelledby="home-sequence-title">
+        <div className="atlas-home-dealz-art" aria-hidden="true"><span className="atlas-mini-card atlas-mini-card-back">S</span><span className="atlas-mini-card atlas-mini-card-front">●</span></div>
+        <div className="atlas-home-dealz-copy"><span className="atlas-eyebrow">WHAT I BUILT · PLAY THE DEMO</span><h2 id="home-sequence-title">Sequence<span>.</span></h2><p>A shared screen. A little strategy.</p><span className="atlas-home-dealz-meta">Computer play · Same-device two-player</span><div className="atlas-home-dealz-links"><a href="https://sequence-family-table.ochre-wood-2173.chatgpt.site/" target="_blank" rel="noopener noreferrer">Play Sequence ↗</a><Link to="/work#sequence">Behind the game →</Link></div></div>
+      </article>
     </section>
     <footer className="atlas-gateway-footer"><span>ONE LIFE. AN UNFOLDING STORY.</span><span>ENTER THE STORY TO TAKE FLIGHT</span></footer>
     {jump && <WormholeTransition variant={jump} onComplete={() => { window.scrollTo(0, 0); navigate(jump === 'work' ? '/work' : '/travel') }} />}
