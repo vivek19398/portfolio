@@ -6,6 +6,7 @@ const LINKS = [
   { href: '#about', label: 'About' },
   { href: '#skills', label: 'Skills' },
   { href: '#experience', label: 'Experience' },
+  { href: '#what-i-built', label: 'What I Built' },
   { href: '#projects', label: 'Projects' },
   { href: '#achievements', label: 'Achievements' },
   { href: '#education', label: 'Education' },
@@ -41,7 +42,7 @@ export default function Navbar({ resumeUrl }: { resumeUrl: string }) {
           Vivek Ranjan
         </a>
 
-        <ul className="hidden lg:flex items-center gap-6">
+        <ul className="hidden 2xl:flex items-center gap-3">
           {LINKS.map((l) => (
             <li key={l.href}>
               <a
@@ -68,7 +69,7 @@ export default function Navbar({ resumeUrl }: { resumeUrl: string }) {
         </ul>
 
         <button
-          className="lg:hidden p-2 text-mist"
+          className="2xl:hidden p-2 text-mist"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -86,7 +87,7 @@ export default function Navbar({ resumeUrl }: { resumeUrl: string }) {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="lg:hidden overflow-hidden bg-void/95 backdrop-blur-lg border-b border-white/5 px-5 pb-4"
+            className="2xl:hidden overflow-hidden bg-void/95 backdrop-blur-lg border-b border-white/5 px-5 pb-4"
           >
             {LINKS.map((l) => (
               <li key={l.href}>

@@ -13,6 +13,7 @@ import { usePageMeta } from '../hooks/usePageMeta'
 const About = lazy(() => import('../sections/About'))
 const Skills = lazy(() => import('../sections/Skills'))
 const ExperienceTimeline = lazy(() => import('../sections/ExperienceTimeline'))
+const WhatIBuilt = lazy(() => import('../sections/WhatIBuilt'))
 const Projects = lazy(() => import('../sections/Projects'))
 const Achievements = lazy(() => import('../sections/Achievements'))
 const Education = lazy(() => import('../sections/Education'))
@@ -32,7 +33,7 @@ export default function Home() {
   usePageView()
   usePageMeta(
     'Behind the Build — The Atlas Drifter',
-    'Vivek Ranjan, Senior Software Engineer in Dublin with approximately 5 years building GenAI, agentic workflows, and cloud-native applications. Explore GraphCore Studio and AstraPDF.',
+    'Vivek Ranjan, Senior Software Engineer in Dublin with approximately 5 years building GenAI, agentic workflows, and cloud-native applications. Explore Dealz, GraphCore Studio, and AstraPDF.',
   )
 
   return (
@@ -47,6 +48,7 @@ export default function Home() {
           <About profile={data.profile} />
           <Skills skills={data.skills} />
           <ExperienceTimeline experience={data.experience} />
+          <WhatIBuilt />
           <Projects projects={data.projects} />
           <Achievements achievements={data.achievements} />
           <Education education={data.education} />
