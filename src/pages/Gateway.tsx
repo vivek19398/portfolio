@@ -27,6 +27,10 @@ export default function Gateway() {
         <div className="atlas-home-dealz-art" aria-hidden="true"><span className="atlas-mini-card atlas-mini-card-back">D</span><span className="atlas-mini-card atlas-mini-card-front">₹</span></div>
         <div className="atlas-home-dealz-copy"><span className="atlas-eyebrow">WHAT I BUILT · PLAY ONLINE</span><h2 id="home-dealz-title">Dealz<span>.</span></h2><p>Big deals. Little cards. Your people.</p><span className="atlas-home-dealz-meta">2–5 players · Bihar-inspired card game</span><div className="atlas-home-dealz-links"><a href="https://dealgame.vercel.app" target="_blank" rel="noopener noreferrer">Play Dealz ↗</a><Link to="/work#what-i-built">Behind the game →</Link></div></div>
       </article>
+      <article className="atlas-home-dealz atlas-home-twenty-nine" aria-labelledby="home-twenty-nine-title">
+        <div className="atlas-home-dealz-art" aria-hidden="true"><span className="atlas-mini-card atlas-mini-card-back">29</span><span className="atlas-mini-card atlas-mini-card-front">♠</span></div>
+        <div className="atlas-home-dealz-copy"><span className="atlas-eyebrow">WHAT I BUILT · PLAY ONLINE</span><h2 id="home-twenty-nine-title">Twenty-Nine<span>.</span></h2><p>Four players. Two teams. Every trick counts.</p><span className="atlas-home-dealz-meta">4 players · 2 teams · Family password required</span><div className="atlas-home-dealz-links"><a href="https://29game.vercel.app/" target="_blank" rel="noopener noreferrer">Play Twenty-Nine ↗</a><Link to="/work#twenty-nine">Behind the game →</Link></div></div>
+      </article>
     </section>
     <footer className="atlas-gateway-footer"><span>ONE LIFE. AN UNFOLDING STORY.</span><span>ENTER THE STORY TO TAKE FLIGHT</span></footer>
     {jump && <WormholeTransition variant={jump} onComplete={() => { window.scrollTo(0, 0); navigate(jump === 'work' ? '/work' : '/travel') }} />}
