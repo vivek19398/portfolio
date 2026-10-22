@@ -18,7 +18,7 @@ export default function Gateway() {
   }
   return <main id="main" className="atlas-gateway">
     <Cloudscape />
-    <header className="atlas-masthead"><Link to="/" className="atlas-brand">AD<span>THE ATLAS DRIFTER</span></Link><span className="atlas-author">A STORY BY VIVEK RANJAN</span><a href="/Vivek_Ranjan_Resume.pdf" target="_blank" rel="noreferrer">View résumé ↗</a></header>
+    <header className="atlas-masthead"><Link to="/" className="atlas-brand">AD<span>THE ATLAS DRIFTER</span></Link><span className="atlas-author">A STORY BY VIVEK RANJAN</span><Link to="/games" className="atlas-games-nav">Games ↗</Link><a href="/Vivek_Ranjan_Resume.pdf" target="_blank" rel="noreferrer">View résumé ↗</a></header>
     <div className="atlas-embers" aria-hidden="true" />
     <section className="atlas-intro"><p className="atlas-eyebrow">AN ONGOING ORIGINAL</p><h1>The Atlas<br /><em>Drifter.</em></h1><p className="atlas-tagline">One life. Many stories.</p><p className="atlas-description">Every idea has an origin story.<br />Take flight. See where the story takes you.</p></section>
     <section className="atlas-seasons atlas-home-cards" aria-label="Explore my work">
