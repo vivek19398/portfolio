@@ -33,7 +33,7 @@ export default function Home() {
   usePageView()
   usePageMeta(
     'Behind the Build — The Atlas Drifter',
-    'Vivek Ranjan, Senior Software Engineer in Dublin with approximately 5 years building GenAI, agentic workflows, and cloud-native applications. Explore Dealz, Twenty-Nine, Sequence, GraphCore Studio, and AstraPDF.',
+    'Vivek Ranjan, Senior Software Engineer in Dublin with approximately 5 years building GenAI, agentic workflows, and cloud-native applications. Explore Dealz, Twenty-Nine, Sequence, Bhabhi / Tulla, GraphCore Studio, and AstraPDF.',
   )
 
   return (

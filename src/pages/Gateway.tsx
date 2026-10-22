@@ -35,6 +35,10 @@ export default function Gateway() {
         <div className="atlas-home-dealz-art" aria-hidden="true"><span className="atlas-mini-card atlas-mini-card-back">S</span><span className="atlas-mini-card atlas-mini-card-front">●</span></div>
         <div className="atlas-home-dealz-copy"><span className="atlas-eyebrow">WHAT I BUILT · PLAY THE DEMO</span><h2 id="home-sequence-title">Sequence<span>.</span></h2><p>A shared screen. A little strategy.</p><span className="atlas-home-dealz-meta">Computer play · Same-device two-player</span><div className="atlas-home-dealz-links"><a href="https://sequence-family-table.ochre-wood-2173.chatgpt.site/" target="_blank" rel="noopener noreferrer">Play Sequence ↗</a><Link to="/work#sequence">Behind the game →</Link></div></div>
       </article>
+      <article className="atlas-home-dealz atlas-home-tulla" aria-labelledby="home-tulla-title">
+        <div className="atlas-home-dealz-art" aria-hidden="true"><span className="atlas-mini-card atlas-mini-card-back">T</span><span className="atlas-mini-card atlas-mini-card-front">♣</span></div>
+        <div className="atlas-home-dealz-copy"><span className="atlas-eyebrow">WHAT I BUILT · PLAY ONLINE</span><h2 id="home-tulla-title">Bhabhi / Tulla<span>.</span></h2><p>A familiar game. Your private table.</p><span className="atlas-home-dealz-meta">3–8 players · Invite codes · Reconnect support</span><div className="atlas-home-dealz-links"><a href="https://thullacardgame.vercel.app/" target="_blank" rel="noopener noreferrer">Play Bhabhi / Tulla ↗</a><Link to="/work#bhabhi-tulla">Behind the game →</Link></div></div>
+      </article>
     </section>
     <footer className="atlas-gateway-footer"><span>ONE LIFE. AN UNFOLDING STORY.</span><span>ENTER THE STORY TO TAKE FLIGHT</span></footer>
     {jump && <WormholeTransition variant={jump} onComplete={() => { window.scrollTo(0, 0); navigate(jump === 'work' ? '/work' : '/travel') }} />}

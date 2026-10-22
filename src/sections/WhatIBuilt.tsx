@@ -13,7 +13,7 @@ export default function WhatIBuilt() {
   useEffect(() => {
     // This section is lazy-loaded, so its anchor may not exist on initial navigation.
     const anchor = window.location.hash.slice(1)
-    if (!['what-i-built', 'twenty-nine', 'sequence'].includes(anchor)) return
+    if (!['what-i-built', 'twenty-nine', 'sequence', 'bhabhi-tulla'].includes(anchor)) return
     const frame = window.requestAnimationFrame(() => {
       document.getElementById(anchor)?.scrollIntoView({ block: 'start', behavior: 'instant' })
     })
@@ -88,6 +88,23 @@ export default function WhatIBuilt() {
           <div><h4>Built for the next step</h4><p>Online multiplayer is implemented with private hands, invite codes, reconnects, and server-validated moves. Its deployment is still pending.</p></div>
         </div>
         <div className="dealz-engineering"><span className="dealz-eyebrow">IN DEVELOPMENT</span><p>Eight automated tests passed during development. The next milestone is completing the online deployment on Vercel and Supabase.</p><ul aria-label="Sequence capabilities"><li>Computer opponents</li><li>Same-device multiplayer</li><li>Private hands</li><li>Validated moves</li></ul></div>
+      </article>
+      <article id="bhabhi-tulla" className="dealz-showcase tulla-showcase" aria-labelledby="tulla-title">
+        <div className="dealz-overview">
+          <p className="dealz-eyebrow">3–8 PLAYERS · YOUR PRIVATE TABLE</p>
+          <h3 id="tulla-title">Bhabhi / Tulla<span>.</span></h3>
+          <p className="dealz-tagline">A classic card game.<br />A place for everyone.</p>
+          <p className="dealz-description">A mobile-friendly version of the traditional card game. Gather 3–8 players at a private table with an invite code, play around a circular felt table, and watch cards land with natural throw animations. A custom logo completes the game’s identity.</p>
+          <div className="dealz-actions"><a href="https://thullacardgame.vercel.app/" target="_blank" rel="noopener noreferrer" className="dealz-play">Play Bhabhi / Tulla <span aria-hidden="true">↗</span></a><a href="https://github.com/vivek19398/Thulla_Bhabhi" target="_blank" rel="noopener noreferrer" className="dealz-source">Explore the source <span aria-hidden="true">↗</span></a></div>
+          <p className="dealz-mode">Private invite-code tables · Individual player hands · Reconnect support</p>
+        </div>
+        <div className="dealz-table tulla-table" aria-hidden="true"><span className="dealz-table-label">PULL UP A CHAIR. PLAY YOUR HAND.</span><div className="tulla-felt"><span className="tulla-seat tulla-seat-one" /><span className="tulla-seat tulla-seat-two" /><span className="tulla-seat tulla-seat-three" /><span className="tulla-seat tulla-seat-four" /><span className="tulla-playing-card tulla-playing-card-one">A<br />♣</span><span className="tulla-playing-card tulla-playing-card-two">K<br />♥</span><span className="tulla-playing-card tulla-playing-card-three">Q<br />♠</span></div><span className="dealz-table-caption">An illustration of the circular table — not a gameplay screenshot.</span></div>
+        <div className="dealz-features">
+          <div><h4>Bring your people</h4><p>Private invite-code tables for 3–8 players, individual hands, and reconnect support keep the game personal and accessible.</p></div>
+          <div><h4>Every move checked</h4><p>The server validates gameplay. Version checks and duplicate-move protection keep simultaneous actions consistent.</p></div>
+          <div><h4>Keep the table going</h4><p>Private Vercel Blob storage persists game state as JSON, supporting the serverless multiplayer experience.</p></div>
+        </div>
+        <div className="dealz-engineering"><span className="dealz-eyebrow">BUILT AND VALIDATED</span><p>JavaScript and Node.js power server-validated play through Vercel Functions, with JSON persistence in private Vercel Blob storage.</p><p>Validation during development: 35 live checks and 600 simulated games covering over 53,000 moves.</p><ul aria-label="Bhabhi / Tulla technology stack">{['JavaScript', 'Node.js', 'Vercel Functions', 'Vercel Blob', 'HTML', 'CSS'].map(tech => <li key={tech}>{tech}</li>)}</ul></div>
       </article>
     </SectionWrapper>
   )
