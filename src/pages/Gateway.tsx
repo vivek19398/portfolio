@@ -1,46 +1,46 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { motion, useReducedMotion } from 'framer-motion'
 import WormholeTransition from '../components/gateway/WormholeTransition'
-import Cloudscape from '../components/gateway/Cloudscape'
-import type { PortalVariant } from '../components/gateway/WormholePortal'
 import { usePageMeta } from '../hooks/usePageMeta'
-import { trackEvent } from '../hooks/useAnalytics'
 import '../styles/atlas.css'
+import '../styles/realm.css'
+import StoryJourney from '../components/gateway/StoryJourney'
+
+const games = [
+  { name: 'Dealz', number: '01', suit: '♦', label: 'THE ART OF THE DEAL', copy: 'Big deals. Little cards. Your people.', meta: '2–5 players', url: 'https://dealgame.vercel.app/', anchor: 'what-i-built', color: 'jade' },
+  { name: 'Twenty-Nine', number: '02', suit: '♠', label: 'EVERY TRICK COUNTS', copy: 'Four players. Two teams. One winning hand.', meta: '4 players · Family password required', url: 'https://29game.vercel.app/', anchor: 'twenty-nine', color: 'ice' },
+  { name: 'Sequence', number: '03', suit: '●', label: 'THINK A MOVE AHEAD', copy: 'A shared screen. A little strategy.', meta: 'Computer play · Local two-player demo', url: 'https://sequence-family-table.ochre-wood-2173.chatgpt.site/', anchor: 'sequence', color: 'plum' },
+  { name: 'Bhabhi / Tulla', number: '04', suit: '♣', label: 'THE LAST HAND', copy: 'A familiar game. Your private table.', meta: '3–8 players · Private invite codes', url: 'https://thullacardgame.vercel.app/', anchor: 'bhabhi-tulla', color: 'ember' },
+]
 
 export default function Gateway() {
-  usePageMeta('The Atlas Drifter — Vivek Ranjan', 'One life. Many stories. Explore the story of Vivek Ranjan and the things he builds.')
+  usePageMeta('The Atlas Drifter — Vivek Ranjan', 'Engineer. Builder. Explorer. Discover the work, games and unfolding story of Vivek Ranjan.')
+  const [flight, setFlight] = useState(false)
   const navigate = useNavigate()
-  const [jump, setJump] = useState<PortalVariant | null>(null)
-  function enter(variant: PortalVariant) {
-    if (jump) return
-    trackEvent('gateway_enter', { universe: variant })
-    setJump(variant)
-  }
-  return <main id="main" className="atlas-gateway">
-    <Cloudscape />
-    <header className="atlas-masthead"><Link to="/" className="atlas-brand">AD<span>THE ATLAS DRIFTER</span></Link><span className="atlas-author">A STORY BY VIVEK RANJAN</span><Link to="/games" className="atlas-games-nav">Games ↗</Link><a href="/Vivek_Ranjan_Resume.pdf" target="_blank" rel="noreferrer">View résumé ↗</a></header>
-    <div className="atlas-embers" aria-hidden="true" />
-    <section className="atlas-intro"><p className="atlas-eyebrow">AN ONGOING ORIGINAL</p><h1>The Atlas<br /><em>Drifter.</em></h1><p className="atlas-tagline">One life. Many stories.</p><p className="atlas-description">Every idea has an origin story.<br />Take flight. See where the story takes you.</p></section>
-    <section className="atlas-seasons atlas-home-cards" aria-label="Explore my work">
-      <button disabled={jump !== null} onClick={() => enter('work')} className="atlas-season atlas-season-build"><span className="atlas-season-copy"><span className="atlas-eyebrow">ENTER THE STORY</span><h2>Behind the Build</h2><span>Ideas. Obstacles. Things that made a difference.</span></span><span className="atlas-play" aria-hidden="true">↗</span></button>
-      <article className="atlas-home-dealz" aria-labelledby="home-dealz-title">
-        <div className="atlas-home-dealz-art" aria-hidden="true"><span className="atlas-mini-card atlas-mini-card-back">D</span><span className="atlas-mini-card atlas-mini-card-front">₹</span></div>
-        <div className="atlas-home-dealz-copy"><span className="atlas-eyebrow">WHAT I BUILT · PLAY ONLINE</span><h2 id="home-dealz-title">Dealz<span>.</span></h2><p>Big deals. Little cards. Your people.</p><span className="atlas-home-dealz-meta">2–5 players · Bihar-inspired card game</span><div className="atlas-home-dealz-links"><a href="https://dealgame.vercel.app" target="_blank" rel="noopener noreferrer">Play Dealz ↗</a><Link to="/work#what-i-built">Behind the game →</Link></div></div>
-      </article>
-      <article className="atlas-home-dealz atlas-home-twenty-nine" aria-labelledby="home-twenty-nine-title">
-        <div className="atlas-home-dealz-art" aria-hidden="true"><span className="atlas-mini-card atlas-mini-card-back">29</span><span className="atlas-mini-card atlas-mini-card-front">♠</span></div>
-        <div className="atlas-home-dealz-copy"><span className="atlas-eyebrow">WHAT I BUILT · PLAY ONLINE</span><h2 id="home-twenty-nine-title">Twenty-Nine<span>.</span></h2><p>Four players. Two teams. Every trick counts.</p><span className="atlas-home-dealz-meta">4 players · 2 teams · Family password required</span><div className="atlas-home-dealz-links"><a href="https://29game.vercel.app/" target="_blank" rel="noopener noreferrer">Play Twenty-Nine ↗</a><Link to="/work#twenty-nine">Behind the game →</Link></div></div>
-      </article>
-      <article className="atlas-home-dealz atlas-home-sequence" aria-labelledby="home-sequence-title">
-        <div className="atlas-home-dealz-art" aria-hidden="true"><span className="atlas-mini-card atlas-mini-card-back">S</span><span className="atlas-mini-card atlas-mini-card-front">●</span></div>
-        <div className="atlas-home-dealz-copy"><span className="atlas-eyebrow">WHAT I BUILT · PLAY THE DEMO</span><h2 id="home-sequence-title">Sequence<span>.</span></h2><p>A shared screen. A little strategy.</p><span className="atlas-home-dealz-meta">Computer play · Same-device two-player</span><div className="atlas-home-dealz-links"><a href="https://sequence-family-table.ochre-wood-2173.chatgpt.site/" target="_blank" rel="noopener noreferrer">Play Sequence ↗</a><Link to="/work#sequence">Behind the game →</Link></div></div>
-      </article>
-      <article className="atlas-home-dealz atlas-home-tulla" aria-labelledby="home-tulla-title">
-        <div className="atlas-home-dealz-art" aria-hidden="true"><span className="atlas-mini-card atlas-mini-card-back">T</span><span className="atlas-mini-card atlas-mini-card-front">♣</span></div>
-        <div className="atlas-home-dealz-copy"><span className="atlas-eyebrow">WHAT I BUILT · PLAY ONLINE</span><h2 id="home-tulla-title">Bhabhi / Tulla<span>.</span></h2><p>A familiar game. Your private table.</p><span className="atlas-home-dealz-meta">3–8 players · Invite codes · Reconnect support</span><div className="atlas-home-dealz-links"><a href="https://thullacardgame.vercel.app/" target="_blank" rel="noopener noreferrer">Play Bhabhi / Tulla ↗</a><Link to="/work#bhabhi-tulla">Behind the game →</Link></div></div>
-      </article>
+  const reduced = useReducedMotion()
+  const reveal = { initial: reduced ? false as const : { opacity: 0, y: 70 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, amount: .15 }, transition: { duration: .9, ease: 'easeOut' as const } }
+  return <main id="main" className="realm">
+    <header className="realm-nav">
+      <Link to="/" className="realm-wordmark" aria-label="The Atlas Drifter home">AD<span>THE ATLAS DRIFTER</span></Link>
+      <nav aria-label="Main navigation"><Link to="/work">Work</Link><Link to="/games">Games</Link><a href="#story">About</a><Link to="/work#contact">Contact ↗</Link></nav>
+    </header>
+    <StoryJourney />
+    <motion.section {...reveal} className="realm-build realm-section" id="build">
+      <div className="realm-section-label"><span>01 / BEHIND THE BUILD</span><span>FROM AN IDEA TO SOMETHING REAL</span></div>
+      <div className="realm-build-grid"><div><h2>A little curiosity.<br />A lot of <em>building.</em></h2><p className="realm-body">I’m Vivek. I build software that turns complex ideas into things people can actually use. Sometimes that means an intelligent application. Sometimes it means one more game with friends.</p><Link to="/work" className="realm-text-link">Discover the work ↗</Link></div><Link to="/work#projects" className="realm-forge"><span className="realm-forge-orbit" aria-hidden="true">✧</span><span className="realm-kicker">IDEAS, MADE REAL</span><h3>Built with intent.<br />Made to matter.</h3><span>Explore selected projects <b>↗</b></span></Link></div>
+    </motion.section>
+    <section className="realm-games realm-section" id="games">
+      <div className="realm-section-label"><span>02 / THE GAME TABLE</span><span>GOOD COMPANY. GREAT RIVALRIES.</span></div>
+      <div className="realm-heading-row"><h2>Your people.<br /><em>One more hand.</em></h2><div><p className="realm-body">Old favourites. New possibilities.<br />Pull up a chair.</p><Link to="/games" className="realm-text-link">All games ↗</Link></div></div>
+      <div className="realm-game-grid">{games.map(game => <motion.article {...reveal} key={game.anchor} className={`realm-game ${game.color}`}>
+        <a className="realm-game-art" href={game.url} target="_blank" rel="noreferrer" aria-label={`Play ${game.name} (opens in a new tab)`}><span className="realm-game-number">{game.number} / IV</span><div className="realm-card-fan" aria-hidden="true"><span className="realm-playing-card back">AD</span><span className="realm-playing-card middle">{game.suit}</span><span className="realm-playing-card front"><small>{game.number}</small>{game.suit}<small>{game.number}</small></span></div><span className="realm-art-label">{game.label}</span><span className="realm-art-arrow">↗</span></a>
+        <div className="realm-game-copy"><h3>{game.name}</h3><p>{game.copy}</p><span>{game.meta}</span><div><a href={game.url} target="_blank" rel="noreferrer">{game.name === 'Sequence' ? 'Play demo' : 'Play game'} ↗</a><Link to={`/work#${game.anchor}`}>Behind the game →</Link></div></div>
+      </motion.article>)}</div>
     </section>
-    <footer className="atlas-gateway-footer"><span>ONE LIFE. AN UNFOLDING STORY.</span><span>ENTER THE STORY TO TAKE FLIGHT</span></footer>
-    {jump && <WormholeTransition variant={jump} onComplete={() => { window.scrollTo(0, 0); navigate(jump === 'work' ? '/work' : '/travel') }} />}
+    <section className="realm-flight-invite" aria-labelledby="flight-title"><div className="realm-flight-image" aria-hidden="true" /><div className="realm-flight-copy"><p className="realm-kicker">A SMALL DETOUR INTO THE EXTRAORDINARY</p><h2 id="flight-title">Some stories<br />begin with <em>flight.</em></h2><p>Choose your character. Brave the storm.<br />An interactive dragon flight through fire and ice.</p><button className="realm-button" disabled={flight} onClick={() => setFlight(true)}>Take flight <span>↗</span></button><span className="realm-flight-note">9 SECOND ADVENTURE · MOUSE OR TOUCH</span></div></section>
+    <section className="realm-story realm-section" id="story"><div className="realm-section-label"><span>03 / THE PERSON BEHIND IT ALL</span><span>STILL CURIOUS. STILL BUILDING.</span></div><p className="realm-kicker">VIVEK RANJAN / THE ATLAS DRIFTER</p><h2>More than the things I build.<br />It’s the <em>why</em> behind them.</h2><div className="realm-story-bottom"><p className="realm-body">An engineer in Dublin, following curiosity wherever it leads. This is a collection of the work, experiments and small obsessions that make up my story.</p><Link to="/work#experience" className="realm-text-link">Follow my journey ↗</Link><a className="realm-text-link" href="/Vivek_Ranjan_Resume.pdf" target="_blank" rel="noreferrer">Read my résumé ↗</a></div></section>
+    <footer className="realm-footer"><p className="realm-kicker">EVERY GOOD STORY STARTS WITH A CONVERSATION</p><Link to="/work#contact">Send a <em>raven.</em> <span>↗</span></Link><div><span>© {new Date().getFullYear()} VIVEK RANJAN</span><span>THE ATLAS DRIFTER</span><a href="#main">BACK TO THE SKY ↑</a></div></footer>
+    {flight && <WormholeTransition variant="work" onComplete={() => { setFlight(false); window.scrollTo(0, 0); navigate('/work') }} />}
   </main>
 }
