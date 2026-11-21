@@ -55,7 +55,7 @@ export default function Navbar({ resumeUrl }: { resumeUrl: string }) {
             </li>
           ))}
           <li>
-            <a href={resumeUrl} download className="btn-royal !px-4 !py-1.5 text-sm">
+            <a href={resumeUrl} target="_blank" rel="noopener noreferrer" className="btn-royal !px-4 !py-1.5 text-sm">
               Resume
             </a>
           </li>
@@ -102,8 +102,8 @@ export default function Navbar({ resumeUrl }: { resumeUrl: string }) {
               </li>
             ))}
             <li className="pt-3">
-              <a href={resumeUrl} download className="btn-ghost w-full text-sm" onClick={() => setOpen(false)}>
-                Download Resume
+              <a href={resumeUrl} target="_blank" rel="noopener noreferrer" className="btn-ghost w-full text-sm" onClick={() => setOpen(false)}>
+                View Resume ↗
               </a>
             </li>
             <li className="pt-3">
