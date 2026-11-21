@@ -1,19 +1,19 @@
 import type { PortfolioData } from "../types/database"
 
-// Content transcribed from VivekRanjan.pdf, supplied by the owner.
+// Content updated from the owner-supplied Vivek Ranjan.pdf (November 2026).
 // Proficiency values are placeholders required by the DB schema, never displayed.
 export const fallbackData: PortfolioData = {
   "profile": {
     "id": "local",
     "full_name": "Vivek Ranjan",
-    "headline": "Senior Software Engineer",
-    "short_tagline": "Turning ideas into production-grade applications — approximately 5 years building GenAI systems, agentic workflows, and cloud-native platforms.",
+    "headline": "Data Analytics & AI Engineer",
+    "short_tagline": "Data Analytics & AI Engineer at Eli Lilly and Company UK and Ireland (Contract), building enterprise data pipelines and AI solutions for manufacturing and quality analytics.",
     "location": "Dublin, Ireland",
     "email": "vivek000@outlook.com",
     "linkedin_url": "https://www.linkedin.com/in/ranjanvivek19",
     "github_url": "https://github.com/vivek19398/",
     "resume_url": "/Vivek_Ranjan_Resume.pdf",
-    "about_text": "Senior Software Engineer with approximately 5 years of experience designing and building production-grade GenAI, Agentic AI, RAG, and cloud-native applications using Python, FastAPI, LangChain, LangGraph, and cloud services. Experienced in scalable LLM-powered APIs, AI guardrails, evaluation frameworks, multimodal AI, and enterprise data platforms. Built and scaled AWS data pipelines processing 10M+ patient records across therapeutic areas, delivering AI-enabled solutions in enterprise pharmaceutical environments. Eligible to work in Ireland without employer sponsorship (Stamp 1G)."
+    "about_text": "Data Analytics & AI Engineer at Eli Lilly and Company UK and Ireland (Contract), supporting manufacturing, quality, and operational analytics in Cork. Around 5 years of experience designing and building production-grade GenAI, agentic AI, RAG, data engineering, and cloud-native applications using Python, FastAPI, LangChain, LangGraph, and cloud services. Experienced in scalable LLM-powered APIs, AI guardrails, evaluation frameworks, multimodal AI, and enterprise data platforms. Previously built and scaled AWS pipelines processing 10M+ patient records across therapeutic areas. Eligible to work in Ireland without employer sponsorship."
   },
   "skills": [
     {
@@ -510,6 +510,30 @@ export const fallbackData: PortfolioData = {
   ],
   "experience": [
     {
+      "id": "e4",
+      "company_name": "Eli Lilly and Company UK and Ireland (Contract)",
+      "role_title": "Data Analytics & AI Engineer",
+      "location": "Cork, Ireland",
+      "start_date": "2026-11-01",
+      "end_date": null,
+      "is_current": true,
+      "description": "Enterprise data engineering and AI solutions for manufacturing, quality, and operational analytics.",
+      "achievements": [
+        "Design and develop scalable batch and streaming pipelines using Azure Databricks, PySpark, SQL, and AWS for manufacturing, quality, and operational analytics.",
+        "Deliver end-to-end data engineering and AI solutions, from requirements and architecture through deployment, monitoring, and maintenance, aligned with GMP, data integrity, traceability, and change control.",
+        "Integrate agentic AI workflows with enterprise data platforms, REST APIs, and business systems, enabling multi-step reasoning, automated analysis, and data-driven decision support."
+      ],
+      "tech_stack": [
+        "Azure Databricks",
+        "PySpark",
+        "SQL",
+        "AWS",
+        "Agentic AI",
+        "REST APIs"
+      ],
+      "display_order": 0
+    },
+    {
       "id": "e1",
       "company_name": "Eli Lilly and Company",
       "role_title": "Associate Consultant",
@@ -523,7 +547,7 @@ export const fallbackData: PortfolioData = {
         "Built high-concurrency RESTful APIs with FastAPI, Python, and LangGraph for the Consensus system (RedStrike), integrating an LLM agentic framework and AI guardrails for input/output validation, topic classification, and PII detection to address HIPAA/GDPR requirements.",
         "Built and scaled Zepbound (Lilly Health) and Diabetes (Tempo) reporting pipelines processing 10M+ patient records across 150+ tables on AWS S3, Glue, and Redshift, reducing manual operations by 40%.",
         "Integrated SCD Type 1 and Type 2 to enhance data accuracy and introduced monitoring for AWS applications, achieving 99% uptime within 6 months.",
-        "Consolidated multiple SQL Data Warehouse tables into a unified flat table and streamlined reconciliation across sources, boosting accuracy and efficiency by 90%."
+        "Consolidated data in a Databricks data warehouse by connecting multiple tables into a unified flat table and streamlining reconciliation across sources, boosting accuracy and efficiency by 90%."
       ],
       "tech_stack": [
         "Python",
@@ -534,7 +558,8 @@ export const fallbackData: PortfolioData = {
         "Amazon Redshift",
         "Amazon RDS",
         "AWS Glue",
-        "SQL"
+        "SQL",
+        "Databricks"
       ],
       "display_order": 1
     },
@@ -549,7 +574,7 @@ export const fallbackData: PortfolioData = {
       "description": "Automated ETL, warehouse and supply-chain reporting, and cloud data integration.",
       "achievements": [
         "Built automated ETL workflows using PySpark and AWS Glue, eliminating manual overhead and recovering 40+ engineering hours per month.",
-        "Modernized 20+ warehouse and supply-chain reports for El Paso and Denver operations using Python and SQL, improving reporting efficiency by approximately 20%.",
+        "Modernized 20+ warehouse and supply-chain reports for El Paso and Denver operations using Python and SQL in Databricks, improving reporting efficiency by approximately 20%.",
         "Built end-to-end ETL solutions using Azure Data Factory V2, automating extraction, pipeline orchestration, and monitoring through Power BI.",
         "Integrated ServiceNow with data pipelines for failure alerts, reducing support resolution time by 30%."
       ],
@@ -560,7 +585,8 @@ export const fallbackData: PortfolioData = {
         "AWS Glue",
         "Azure Data Factory V2",
         "Power BI",
-        "ServiceNow"
+        "ServiceNow",
+        "Databricks"
       ],
       "display_order": 2
     },
@@ -572,17 +598,18 @@ export const fallbackData: PortfolioData = {
       "start_date": "2021-01-01",
       "end_date": "2022-09-30",
       "is_current": false,
-      "description": "Automated warehouse workflows and commercial insurance analytics on Snowflake.",
+      "description": "Automated warehouse workflows and commercial insurance analytics using Databricks, SQL, and PySpark.",
       "achievements": [
         "Created a reliable CI/CD pipeline using GitHub Actions and a flexible, config-driven Python framework to automate builds, daily updates, and auditing of warehouse transactional tables.",
-        "Modelled star-schema fact and dimension tables for a Commercial Insurance dataset, supporting scalable BI and analytics through SQL, PySpark, and data-warehousing practices in Snowflake."
+        "Modelled star-schema fact and dimension tables for a Commercial Insurance dataset, supporting scalable BI and analytics through SQL, PySpark, and data-warehousing practices in Databricks."
       ],
       "tech_stack": [
         "Python",
         "GitHub Actions",
         "SQL",
         "PySpark",
-        "Snowflake"
+        "Snowflake",
+        "Databricks"
       ],
       "display_order": 3
     }
@@ -662,5 +689,5 @@ export const resumeContact = {
   "phone_url": "tel:+353899708587",
   "leetcode_url": "https://leetcode.com/u/viveksinha00/",
   "pypi_url": "https://pypi.org/user/atlas.drifter/",
-  "work_authorization": "Eligible to work in Ireland without employer sponsorship (Stamp 1G)."
+  "work_authorization": "Eligible to work in Ireland without employer sponsorship."
 }

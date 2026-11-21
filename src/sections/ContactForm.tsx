@@ -74,8 +74,8 @@ export default function ContactForm({ profile }: { profile: Profile }) {
           className="md:col-span-2 space-y-6"
         >
           <p className="text-ash leading-relaxed">
-            Open to senior software engineering, GenAI, and backend opportunities. Whether it's a role,
-            a collaboration, or a challenging system to build — my inbox is open.
+            Interested in conversations about data engineering, GenAI, and useful software. Whether it’s
+            a collaboration or a challenging system to build — my inbox is open.
           </p>
           <p className="text-sm text-gold-light">{resumeContact.work_authorization}</p>
           <div className="space-y-3 text-sm">
